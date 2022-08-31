@@ -1,8 +1,11 @@
-
+import Nav from './Nav'
 
 const Header = () => {
     return (
-        <div>Header</div>
+        <>
+            <div>Header</div>
+            <Nav />
+        </>
     )
 }
 
