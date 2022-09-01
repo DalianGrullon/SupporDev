@@ -8,7 +8,8 @@ const developerSchema = new Schema({
   userName: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    unique: true
   },
   firstName: {
     type: String,
@@ -30,8 +31,12 @@ const developerSchema = new Schema({
     required: true,
     minlength: 5
   },
-  contributions: {
-    type: String
+  contributions: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Request'
+    }
+  ]
 });
 
 // set up pre-save middleware to create password
