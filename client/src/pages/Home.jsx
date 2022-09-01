@@ -1,9 +1,11 @@
-
-
+import ProjectCardHeader from "../components/ProjectCardHeader";
 const Home = () => {
     return (
-        <div className="text-4xl text-primary">Home</div>
-    )
-}
+        <div>
+            <ProjectCardHeader/>
+            
+        </div>
+    );
+};
 
-export default Home
+export default Home;
