@@ -8,7 +8,8 @@ const developerSchema = new Schema({
   userName: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    unique: true
   },
   firstName: {
     type: String,
@@ -32,7 +33,8 @@ const developerSchema = new Schema({
   },
   contributions: [
     {
-      type: String
+      type: Schema.Types.ObjectId,
+      ref: 'Request'
     }
   ]
 });
