@@ -30,8 +30,11 @@ const developerSchema = new Schema({
     required: true,
     minlength: 5
   },
-  contributions: {
-    type: String
+  contributions: [
+    {
+      type: String
+    }
+  ]
 });
 
 // set up pre-save middleware to create password

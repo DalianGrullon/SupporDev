@@ -30,11 +30,12 @@ const requesterSchema = new Schema({
     required: true,
     minlength: 5
   },
-  request: {
-    type:  String,
-    required: true,
-  }
-
+  requests: [
+    {
+      type: String,
+      required: true,
+    }
+  ]
 });
 
 // set up pre-save middleware to create password
