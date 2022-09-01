@@ -33,19 +33,21 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         {/* some provider */}
-        <Header />
-        <Aside />
-        <Routes>
-          <Route
-            path='/'
-            element={<Home />}
-          />
-          <Route
-            path='/request'
-            element={<CreateRequest />}
-          />
-        </Routes>
-        <Footer />
+        <div className='min-h-full'>
+          <Header />
+          <Aside />
+          <Routes>
+            <Route
+              path='/'
+              element={<Home />}
+            />
+            <Route
+              path='/request'
+              element={<CreateRequest />}
+            />
+          </Routes>
+          <Footer />
+        </div>
         {/* /some provider */}
       </Router>
     </ApolloProvider>
