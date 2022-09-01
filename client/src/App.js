@@ -33,8 +33,9 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         {/* some provider */}
+        <div className='h-screen'>
           <Header />
-        <section className='flex grow'>
+        <section className='flex grow items-center'>
           <Aside />
           <Routes>
             <Route
@@ -46,8 +47,9 @@ function App() {
               element={<CreateRequest />}
             />
           </Routes>
-          <Footer />
         </section>
+          <Footer />
+          </div>
         {/* /some provider */}
       </Router>
     </ApolloProvider>

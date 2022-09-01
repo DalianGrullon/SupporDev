@@ -6,19 +6,19 @@ const Footer = () => {
             <div className="FooterContainer bg-neutral text-neutral-content pb-2">
                 <h1 className="text-xl text-center font-serif">Socials</h1>
                 <div className="m-4 text-center flex justify-center space-x-2">
-                    <a href="https://github.com/DalianGrullon">
+                    <a href="https://github.com/DalianGrullon" target='_blank' rel="noreferrer">
                         {" "}
                         <SiGithub size={30} />
                     </a>
-                    <a href="https://github.com/Mkish1220">
+                    <a href="https://github.com/Mkish1220" target='_blank' rel="noreferrer">
                         {" "}
                         <SiGithub size={30} />
                     </a>
-                    <a href="https://github.com/RflctnOfU">
+                    <a href="https://github.com/RflctnOfU" target='_blank' rel="noreferrer">
                         {" "}
                         <SiGithub size={30} />
                     </a>
-                    <a href="https://github.com/Zachary-Maddox">
+                    <a href="https://github.com/Zachary-Maddox" target='_blank' rel="noreferrer">
                         {" "}
                         <SiGithub size={30} />
                     </a>
