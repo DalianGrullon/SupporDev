@@ -2,14 +2,17 @@ import AsideCard from "./AsideCard"
 
 const Aside = () => {
     return (
-        <>
-            <aside className="float-left w-auto bg-base-100 overflow-auto items-center">
+        <div className="">
+            <aside className="float-left w-auto bg-base-100 h-1/2 items-center overflow-y-scroll">
+                <AsideCard />
+                <AsideCard />
+                <AsideCard />
+                <AsideCard />
                 <AsideCard />
                 <AsideCard />
                 <AsideCard />
             </aside>
-
-        </>
+        </div>
     )
 }
 
