@@ -3,6 +3,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context'
 
 import Header from './components/Header'
+import CardHeader from './components/CardHeader'
 import Aside from './components/Aside'
 import Footer from './components/Footer'
 import Home from './pages/Home'
