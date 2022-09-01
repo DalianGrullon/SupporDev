@@ -2,24 +2,6 @@ const db = require('./connection');
 const { Developer, Requester, Request } = require('../models/index');
 
 db.once('open', async () => {
-  await Request.deleteMany();
-  const requests = await Request.insertMany([
-    {
-      title: 'HTML',
-      description: 'I need a basic HTML layout'
-    },
-    {
-      title: 'CSS',
-      description: 'I need a basic CSS template'
-    },
-    {
-      title: 'JS',
-      description: 'I need some scripting done!'
-    },
-  ]);
-
-  console.log('Requests seeded');
-  
   await Requester.deleteMany();
   const requesters = await Requester.insertMany([
     {
@@ -28,7 +10,7 @@ db.once('open', async () => {
       lastName: 'name',
       email: 'user1@testmail.com',
       password: 'password12345',
-      requests: [requests[0]._id]
+      requests: []
     },
     {
       userName: 'username2',
@@ -36,7 +18,7 @@ db.once('open', async () => {
       lastName: 'name',
       email: 'user2@testmail.com',
       password: 'password12345',
-      requests: [requests[1]._id]
+      requests: []
     },
     {
       userName: 'username3',
@@ -44,11 +26,47 @@ db.once('open', async () => {
       lastName: 'name',
       email: 'user3@testmail.com',
       password: 'password12345',
-      requests: [requests[2]._id]
+      requests: []
     },
   ]);
 
   console.log('Requesters seeded');
+  
+  await Request.deleteMany();
+  const requests = await Request.insertMany([
+    {
+      title: 'HTML',
+      description: 'I need a basic HTML layout',
+      requester: requesters[0]._id
+    },
+    {
+      title: 'CSS',
+      description: 'I need a basic CSS template',
+      requester: requesters[1]._id
+    },
+    {
+      title: 'JS',
+      description: 'I need some scripting done!',
+      requester: requesters[2]._id
+    },
+  ]);
+
+  await Requester.findOneAndUpdate(
+    { _id: requests[0].requester },
+    { $push: { requests: requests[0]._id } }
+  );
+
+  await Requester.findOneAndUpdate(
+    { _id: requests[1].requester },
+    { $push: { requests: requests[1]._id } }
+  );
+
+  await Requester.findOneAndUpdate(
+    { _id: requests[2].requester },
+    { $push: { requests: requests[2]._id } }
+  );
+
+  console.log('Requests seeded');
 
   await Developer.deleteMany();
   await Developer.insertMany([
