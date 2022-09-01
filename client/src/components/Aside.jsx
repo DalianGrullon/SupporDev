@@ -8,6 +8,9 @@ const Aside = () => {
                 <AsideCard />
                 <AsideCard />
                 <AsideCard />
+                <AsideCard />
+                <AsideCard />
+                <AsideCard />
             </aside>
         </div>
     )

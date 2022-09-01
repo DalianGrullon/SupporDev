@@ -6,6 +6,7 @@ import Header from './components/Header'
 import Aside from './components/Aside'
 import Footer from './components/Footer'
 import Home from './pages/Home'
+import ProjectCard from './components/ProjectCard';
 import CreateRequest from './components/CreateRequest'
 
 
@@ -33,14 +34,18 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         {/* some provider */}
-        <div className='h-screen'>
+        <div className=''>
           <Header />
-        <section className='flex grow items-center'>
+        <section className='flex h-1/2 items-center'>
           <Aside />
           <Routes>
             <Route
               path='/'
               element={<Home />}
+            />
+            <Route
+              path='/project/:id'
+              element={<ProjectCard />}
             />
             <Route
               path='/request'
