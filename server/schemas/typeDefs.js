@@ -1,60 +1,59 @@
+// Define model types
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Category {
-    _id: ID
-    name: String
-  }
+type Developer {
+  _id: ID
+  username: String
+  contribution: [Contribution]
+}
 
-  type Product {
-    _id: ID
-    name: String
-    description: String
-    image: String
-    quantity: Int
-    price: Float
-    category: Category
-  }
+type Contribution {
+  _id: ID
+  title: String
+  description: String
+}
 
-  type Order {
-    _id: ID
-    purchaseDate: String
-    products: [Product]
-  }
+type Request {
+  _id: ID
+  title: String
+  description: String
+}
+ 
+type Requester {
+  _id: ID
+  username: String
+  email: String
+  request: [Request]
+}
 
-  type User {
-    _id: ID
-    firstName: String
-    lastName: String
-    email: String
-    orders: [Order]
-  }
+type developerAuth {
+  token: ID
+  developer: Developer
+}
 
-  type Checkout {
-    session: ID
-  }
+type requesterAuth {
+  token: ID
+  requester: Requester
+} 
 
-  type Auth {
-    token: ID
-    user: User
-  }
+type Query {
+  developer(_id: ID!, userName: String!): [Developer]
+  requester(_id: ID!, userName: String!): [Requester]
+  requests: [Request]
+  contribution: [Contribution]
+}
 
-  type Query {
-    categories: [Category]
-    products(category: ID, name: String): [Product]
-    product(_id: ID!): Product
-    user: User
-    order(_id: ID!): Order
-    checkout(products: [ID]!): Checkout
-  }
-
-  type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
-    login(email: String!, password: String!): Auth
-  }
+type Mutation {
+  developerLogin(userName: String!, password: String!): developerAuth
+  requesterLogin(userName: String!, password: String!): requesterAuth
+  addDeveloper(userName: String!, firstName: String!, lastName: String!, email: String!, password: String!): developerAuth
+  addRequester(userName: String!, firstName: String!, lastName: String!, email: String!, password: String!): requesterAuth
+  addContribution(userName: String!,  _id: ID!): Developer
+  addRequest(title: String!, description: String!, _id: ID!): Request
+  updateRequest(_id: ID!, title: String!, description: String!): Request
+  deleteRequest(_id: ID!, title: String!, description: String!): Request
+}
 `;
 
 module.exports = typeDefs;
