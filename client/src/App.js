@@ -6,7 +6,7 @@ import Header from './components/Header'
 import Aside from './components/Aside'
 import Footer from './components/Footer'
 import Home from './pages/Home'
-import CreateRequest from './pages/CreateRequest'
+import CreateRequest from './components/CreateRequest'
 
 
 const httpLink = createHttpLink({
@@ -33,19 +33,21 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         {/* some provider */}
-        <Header />
-        <Aside />
-        <Routes>
-          <Route
-            path='/'
-            element={<Home />}
-          />
-          <Route
-            path='/request'
-            element={<CreateRequest />}
-          />
-        </Routes>
-        <Footer />
+          <Header />
+        <section className='flex grow'>
+          <Aside />
+          <Routes>
+            <Route
+              path='/'
+              element={<Home />}
+            />
+            <Route
+              path='/request'
+              element={<CreateRequest />}
+            />
+          </Routes>
+          <Footer />
+        </section>
         {/* /some provider */}
       </Router>
     </ApolloProvider>

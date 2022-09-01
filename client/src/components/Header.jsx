@@ -4,6 +4,7 @@ import { FaUserCircle } from 'react-icons/fa'
 const Header = () => {
     return (
         <>
+        {/* TODO make burger menu for mobile devices */}
             <header className="bg-gradient-to-br from-neutral to-slate-500 text-neutral-content flex justify-between h-32 items-center ">
                 <div className="pl-8 flex items-center">
                     <FaUserCircle size={70} />
