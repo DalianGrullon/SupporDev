@@ -45,6 +45,7 @@ type Query {
 
 type Mutation {
   addRequester(userName: String!, firstName: String!, lastName: String!, email: String!, password: String!): requesterAuth
+  addDeveloper(userName: String!, firstName: String!, lastName: String!, email: String!, password: String!): developerAuth
 }
 `;
 

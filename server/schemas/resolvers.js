@@ -101,13 +101,13 @@ const resolvers = {
       const token = signToken(requester);
 
       return { token, requester };
-    }
-    // addUser: async (parent, args) => {
-    //   const user = await User.create(args);
-    //   const token = signToken(user);
+    },
+    addDeveloper: async (parent, args) => {
+      const developer = await Developer.create(args);
+      const token = signToken(developer);
 
-    //   return { token, user };
-    // },
+      return { token, developer };
+    }
   //   addOrder: async (parent, { products }, context) => {
   //     console.log(context);
   //     if (context.user) {
