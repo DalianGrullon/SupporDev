@@ -116,7 +116,41 @@ const resolvers = {
       );
 
       return await Request.findById(request._id).populate('requester');
-    }
+    },
+    requesterLogin: async (parent, { email, password }) => {
+      const requester = await Requester.findOne({ email });
+
+      if (!requester) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const correctPw = await requester.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const token = signToken(requester);
+
+      return { token, requester };
+    },
+    developerLogin: async (parent, { email, password }) => {
+      const developer = await Developer.findOne({ email });
+
+      if (!developer) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const correctPw = await developer.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const token = signToken(developer);
+
+      return { token, developer };
+    },
   //   addOrder: async (parent, { products }, context) => {
   //     console.log(context);
   //     if (context.user) {
