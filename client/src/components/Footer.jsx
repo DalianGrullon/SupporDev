@@ -1,9 +1,6 @@
 import { SiGithub } from "react-icons/si";
 
 const Footer = () => {
-    // const scale = {
-    //     scale: 
-    // }
     return (
         <div id="Contact">
             <div className="bg-neutral text-neutral-content py-2">
