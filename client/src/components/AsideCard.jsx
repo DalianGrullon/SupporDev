@@ -1,12 +1,13 @@
+import PracticeData from "../data/PracticeData"
 
 
-const AsideCard = () => {
+const AsideCard = ({title, username}) => {
   return (
-    <div class="card w-48 bg-base-300 shadow-lg m-4">
-  <div class="card-body text-primary">
+    <div className="card w-48 bg-base-300 shadow-lg m-4">
+  <div className="card-body text-primary">
     {/* TODO: make this a link to populate the main body of post info */}
-    <h3 class="card-title">Request title!</h3>
-    <h4>Requester username</h4>
+    <h3 className="card-title">{title}</h3>
+    <h4>{username}</h4>
   </div>
 </div>
   )

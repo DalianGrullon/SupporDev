@@ -1,16 +1,14 @@
 import AsideCard from "./AsideCard"
-
+import PracticeData from "../data/PracticeData"
 const Aside = () => {
+    const practice = PracticeData
     return (
         <div className="">
-            <aside className="float-left w-auto bg-base-100 h-1/2 items-center overflow-y-scroll">
-                <AsideCard />
-                <AsideCard />
-                <AsideCard />
-                <AsideCard />
-                <AsideCard />
-                <AsideCard />
-                <AsideCard />
+            <aside className="  bg-base-100 h-2/3 items-center overflow-auto absolute" >
+                {practice.map((practice) => 
+                    <AsideCard key={practice.username} title={practice.request.title} username={practice.username}/>
+                )}
+                
             </aside>
         </div>
     )
