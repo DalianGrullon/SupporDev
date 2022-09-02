@@ -30,23 +30,26 @@ const client = new ApolloClient({
 })
 
 function App() {
+  const height = {
+    height: '80vh'
+  }
   return (
     <ApolloProvider client={client}>
       <Router>
         {/* some provider */}
         <div className=''>
           <Header />
-        <section className='flex h-1/2 items-center'>
+        <section className='grid grid-cols-12 grid-rows-6 items-center' style={height}>
           <Aside />
           <Routes>
             <Route
               path='/'
               element={<Home />}
             />
-            <Route
+            {/* <Route
               path='/project/:id'
               element={<ProjectCard />}
-            />
+            /> */}
             <Route
               path='/request'
               element={<CreateRequest />}

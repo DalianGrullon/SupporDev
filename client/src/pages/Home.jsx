@@ -1,9 +1,9 @@
-import ProjectCardHeader from "../components/ProjectCardHeader";
+// import ProjectCardHeader from "../components/ProjectCardHeader";
 const Home = () => {
     return (
 
-        <div className="text-4xl text-primary bg-base-100 w-3/4 mx-auto">
-            <div className="card w-auto bg-primary text-primary-content shadow-xl">
+        <div className="text-4xl text-primary bg-base-100 col-span-8 col-start-4 row-span-4 row-start-2 mr-4 mx-auto">
+            <div className="card w-auto bg-info text-info-content shadow-2xl">
                 <div className="card-body">
                     <h2 className="card-title">Welcome to SupporDev!</h2>
                     <p >Do you need web development work done and are unable to afford a complete solution? Are you a developer who needs to hone your skills with real world experience? If so, SupporDev is the place for you!</p>
