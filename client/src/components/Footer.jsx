@@ -7,7 +7,7 @@ const Footer = () => {
                 {/* <h1 className="text-xl text-center font-serif">Socials</h1> */}
                 <div className="m-4 text-center flex justify-around font-mono ">
                     <div className="flex items-center">
-                    <a href="https://github.com/DalianGrullon" target='_blank' rel="noreferrer">
+                     <a href="https://github.com/DalianGrullon" target='_blank' rel="noreferrer">
                         {" "}
                         <SiGithub className="hover:text-base-200 hover:scale-105 duration-300 " size={60} />
                     </a>

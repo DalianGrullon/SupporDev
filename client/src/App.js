@@ -8,7 +8,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import ProjectCard from './components/ProjectCard';
 import CreateRequest from './components/CreateRequest'
-
+import Login from './pages/Login';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -53,6 +53,10 @@ function App() {
             <Route
               path='/request'
               element={<CreateRequest />}
+            />
+            <Route
+            path='/login'
+            element={<Login/>}
             />
           </Routes>
         </section>
