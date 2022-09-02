@@ -1,28 +1,24 @@
 import React from "react";
+import {FaUserCircle} from 'react-icons/fa'
+import PracticeData from "../data/PracticeData";
 
 function ProjectCardHeader() {
+    const data = PracticeData;
     return (
-        <div>
-            <div className="Container border-2 border-zinc-800 flex">
-                <div className="basis-1/3 flex justify-start items-center">
-                    <img
-                        id="ProfileImage"
-                        className="border-2 rounded-full border-zinc-800 w-12"
-                        src="logo192.png"
-                        alt="Image"
-                    />
+        <div className="w-full">
+            <div className="container border-2 border-zinc-800 justify-between w-full flex">
+                <div className="">
+                    <FaUserCircle />
                 </div>
-                <h2
-                    id="Username"
-                    className="basis-1/3 flex justify-center items-center"
+                <h2 className=""
                 >
-                    Username
+                    {data[0].username}
                 </h2>
                 <h3
-                    id="Title"
-                    className="basis-1/3 flex justify-center items-center"
+                    
+                    className=""
                 >
-                    Title
+                    {data[0].request.title}
                 </h3>
             </div>
         </div>

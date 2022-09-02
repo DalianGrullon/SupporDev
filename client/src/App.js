@@ -46,10 +46,10 @@ function App() {
               path='/'
               element={<Home />}
             />
-            {/* <Route
-              path='/project/:id'
+            <Route
+              path='/project'
               element={<ProjectCard />}
-            /> */}
+            />
             <Route
               path='/request'
               element={<CreateRequest />}
