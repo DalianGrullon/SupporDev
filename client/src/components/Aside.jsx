@@ -4,7 +4,7 @@ const Aside = () => {
     const practice = PracticeData
     return (
         <div className="">
-            <aside className="  bg-base-100 h-2/3 items-center overflow-auto absolute" >
+            <aside className="bg-base-100 md:h-2/3 md:items-center md:overflow-y-auto md:absolute" >
                 {practice.map((practice) => 
                     <AsideCard key={practice.username} title={practice.request.title} username={practice.username}/>
                 )}
