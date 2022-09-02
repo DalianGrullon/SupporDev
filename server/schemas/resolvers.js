@@ -95,13 +95,19 @@ const resolvers = {
     //   return { session: session.id };
     // }
   },
-  // Mutation: {
-  //   addUser: async (parent, args) => {
-  //     const user = await User.create(args);
-  //     const token = signToken(user);
+  Mutation: {
+    addRequester: async (parent, args) => {
+      const requester = await Requester.create(args);
+      const token = signToken(requester);
 
-  //     return { token, user };
-  //   },
+      return { token, requester };
+    },
+    addDeveloper: async (parent, args) => {
+      const developer = await Developer.create(args);
+      const token = signToken(developer);
+
+      return { token, developer };
+    }
   //   addOrder: async (parent, { products }, context) => {
   //     console.log(context);
   //     if (context.user) {
@@ -143,7 +149,7 @@ const resolvers = {
 
   //     return { token, user };
   //   }
-  // }
+  }
 };
 
 module.exports = resolvers;
