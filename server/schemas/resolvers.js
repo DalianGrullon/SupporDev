@@ -158,6 +158,41 @@ const resolvers = {
 
   //     return { token, user };
   //   }
+    },
+  requesterLogin: async (parent, args, context) => {
+    const requester= await Requester.findOne({ email });
+
+    if (!requester) {
+      throw new AuthenticationError('Incorrect credentials');
+    }
+
+    const correctPw = await requester.isCorrectPassword(password);
+
+    if (!correctPw) {
+      throw new AuthenticationError('Incorrect credentials');
+    }
+
+    const token = signToken(requester);
+
+    return { token, requester};
+  },
+    developerLogin: async (parent, args, context) => {
+      const developer= await Developer.findOne({ email });
+
+      if (!developer) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const correctPw = await developer.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const token = signToken(developer);
+
+      return { token, developer};
+    }
   }
 };
 
