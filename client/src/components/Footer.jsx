@@ -3,7 +3,7 @@ import { SiGithub } from "react-icons/si";
 const Footer = () => {
     return (
         <div id="Contact">
-            <div className="FooterContainer bg-neutral text-neutral-content pb-2">
+            <div className="FooterContainer bg-gradient-to-br from-neutral to-slate-500 text-neutral-content  pb-2">
                 <h1 className="text-xl text-center font-serif">Socials</h1>
                 <div className="m-4 text-center flex justify-center space-x-2">
                     <a href="https://github.com/DalianGrullon" target='_blank' rel="noreferrer">
