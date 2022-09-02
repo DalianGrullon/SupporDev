@@ -4,7 +4,7 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
 type Developer {
   _id: ID
-  username: String
+  userName: String
   contribution: [Contribution]
 }
 
@@ -18,13 +18,14 @@ type Request {
   _id: ID
   title: String
   description: String
+  requester: Requester
 }
  
 type Requester {
   _id: ID
-  username: String
+  userName: String
   email: String
-  request: [Request]
+  requests: [Request]
 }
 
 type developerAuth {
@@ -39,7 +40,7 @@ type requesterAuth {
 
 type Query {
   developer(_id: ID!, userName: String!): [Developer]
-  requester(_id: ID!, userName: String!): [Requester]
+  requester(_id: ID!): Requester
   requests: [Request]
   contribution: [Contribution]
 }
