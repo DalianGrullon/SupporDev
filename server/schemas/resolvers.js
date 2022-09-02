@@ -107,6 +107,15 @@ const resolvers = {
       const token = signToken(developer);
 
       return { token, developer };
+    },
+    addRequest: async (parent, args) => {
+      const request = await Request.create(args);
+      const requester = await Requester.findOneAndUpdate(
+        { _id: args.requester },
+        { $push: { requests: request._id } }
+      );
+
+      return await Request.findById(request._id).populate('requester');
     }
   //   addOrder: async (parent, { products }, context) => {
   //     console.log(context);
