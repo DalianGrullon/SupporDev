@@ -1,4 +1,3 @@
-import { Navbar, Flowbite } from "flowbite-react";
 import { useState } from "react";
 import { FaBars, FaUserCircle } from "react-icons/fa";
 
