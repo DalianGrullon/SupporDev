@@ -1,8 +1,8 @@
 // import ProjectCardHeader from "../components/ProjectCardHeader";
 const Home = () => {
   return (
-    <div className="text-primary bg-base-100 col-span-8 col-start-4 row-span-4 row-start-2 mx-auto">
-      <div className="card w-auto bg-info text-info-content shadow-2xl">
+    <div className="text-primary bg-base-100 col-span-8 col-start-4 row-span-4 rounded-xl row-start-2 mx-auto">
+      <div className="card w-auto bg-gradient-to-br from-neutral-focus to-slate-400 text-neutral-content shadow-2xl">
         <div className="card-body">
           <h2 className="card-title text-4xl">Welcome to SupporDev!</h2>
           <p className="text-xl">
