@@ -11,7 +11,9 @@ const Home = () => {
             with real world experience? If so, SupporDev is the place for you!
           </p>
           <div className="card-actions justify-end">
-            <button className="btn">Get Started!</button>
+            <a href="/signup">
+              <button className="btn">Get Started!</button>
+            </a>
           </div>
         </div>
       </div>
