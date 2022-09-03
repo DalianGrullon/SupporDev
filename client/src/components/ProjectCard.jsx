@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectCardHeader from "./ProjectCardHeader";
+// import ProjectCardHeader from "./ProjectCardHeader";
 import PracticeData from "../data/PracticeData";
 import { FaUserCircle } from "react-icons/fa";
 
