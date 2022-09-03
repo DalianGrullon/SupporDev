@@ -3,7 +3,7 @@ import { SiGithub } from "react-icons/si";
 const Footer = () => {
     return (
         <div id="Contact">
-            <div className="bg-neutral text-neutral-content py-2">
+            <div className="bg-gradient-to-br from-slate-400 to-neutral text-neutral-content py-2">
                 {/* <h1 className="text-xl text-center font-serif">Socials</h1> */}
                 <div className="m-4 text-center flex justify-around font-mono ">
                     <div className="flex items-center">
