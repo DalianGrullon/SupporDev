@@ -24,18 +24,18 @@ const Login = () => {
 
     //     </div>
     // )
-    <div class="block p-6 rounded-lg shadow-lg bg-base-300 max-w-md col-start-6 col-span-4">
+    <div className="block p-6 rounded-lg shadow-lg bg-base-300 max-w-md md:col-start-6 md:col-span-4 mx-auto mb-24">
       <form>
-        <div class="form-group mb-6">
+        <div className="form-group ml-6 mb-6 mx-auto">
           <label
-            for="exampleInputEmail2"
-            class="form-label inline-block mb-2 text-gray-700"
+            htmlFor="exampleInputEmail2"
+            className="form-label inline-block mb-2 text-gray-700"
           >
             Email address
           </label>
           <input
             type="email"
-            class="form-control
+            className="form-control
         block
         w-full
         px-3
@@ -55,16 +55,16 @@ const Login = () => {
             placeholder="Enter email"
           />
         </div>
-        <div class="form-group mb-6">
+        <div className="form-group mb-6">
           <label
-            for="exampleInputPassword2"
-            class="form-label inline-block mb-2 text-gray-700"
+            htmlFor="exampleInputPassword2"
+            className="form-label inline-block mb-2 text-gray-700"
           >
             Password
           </label>
           <input
             type="password"
-            class="form-control block
+            className="form-control block
         w-full
         px-3
         py-1.5
@@ -85,7 +85,7 @@ const Login = () => {
 
         <button
           type="submit"
-          class="
+          className="
       w-full
       px-6
       py-2.5
@@ -106,11 +106,11 @@ const Login = () => {
         >
           Sign in
         </button>
-        <p class="text-gray-800 mt-6 text-center">
+        <p className="text-gray-800 mt-6 text-center">
           Not a member?{" "}
           <a
             href="/signup"
-            class="text-primary hover:text-primary-focus focus:text-emerald-700 transition duration-200 ease-in-out"
+            className="text-primary hover:text-primary-focus focus:text-emerald-700 transition duration-200 ease-in-out"
           >
             Sign Up!
           </a>
