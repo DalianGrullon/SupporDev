@@ -24,9 +24,9 @@ const Login = () => {
 
     //     </div>
     // )
-    <div className="block p-6 rounded-lg shadow-lg bg-base-300 max-w-md md:col-start-6 md:col-span-4 mx-auto mb-24">
+    <div className="block p-6 rounded-lg shadow-lg bg-base-300 max-w-md md:col-start-6 md:col-span-4  mb-24">
       <form>
-        <div className="form-group ml-6 mb-6 mx-auto">
+        <div className="form-group mb-6">
           <label
             htmlFor="exampleInputEmail2"
             className="form-label inline-block mb-2 text-gray-700"
