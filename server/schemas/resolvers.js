@@ -10,6 +10,9 @@ const resolvers = {
     },
     requester: async (parent, { _id }) => {
       return await Requester.findById(_id).populate('requests');
+    },
+    request: async (parent, { _id }) => {
+      return await Request.findById(_id).populate('requester');
     }
     // categories: async () => {
     //   return await Category.find();

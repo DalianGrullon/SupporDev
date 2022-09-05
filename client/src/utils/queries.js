@@ -31,3 +31,17 @@ export const QUERY_REQUESTS = gql`
     }
   }
 `;
+
+// returns all requests with their corresponding requesters
+export const QUERY_REQUEST = gql`
+  query getRequest($id: ID!) {
+    request(_id: $id) {
+      title
+      description
+      requester {
+        userName
+        email
+      }
+    }
+  }
+`;

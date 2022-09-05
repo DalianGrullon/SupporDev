@@ -7,7 +7,6 @@ const Aside = () => {
   // const requests = PracticeData;
   const { loading, error, data } = useQuery(QUERY_REQUESTS);
   const requestData = data?.requests || {};
-  console.log(requestData);
   if (loading) {
     return <h2>LOADING...</h2>;
   }
