@@ -1,4 +1,5 @@
 // import ProjectCardHeader from "../components/ProjectCardHeader";
+
 const Home = () => {
   return (
     <div className="text-primary bg-base-100 md:col-span-8 md:col-start-4 md:row-span-4 rounded-xl md:row-start-2 mx-auto">

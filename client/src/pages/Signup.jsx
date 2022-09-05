@@ -112,8 +112,9 @@ const Signup = () => {
           className="form-select bg-base-100 rounded-lg mb-6 w-full"
           name="role"
           id="role"
+          value="choose"
         >
-          <option value="none" disabled hidden selected>
+          <option value="choose" disabled hidden>
             Choose account type
           </option>
           <option name="developer" value={userFormData.role}>

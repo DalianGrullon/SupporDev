@@ -47,10 +47,7 @@ function App() {
         <div className="">
           <Header />
           <Aside />
-          <section
-            className="md:grid md:grid-cols-12  md:items-center md:my-0 mt-60 "
-            style={height}
-          >
+          <section className="grid grid-cols-12  items-center" style={height}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/project/:projectId" element={<ProjectCard />} />

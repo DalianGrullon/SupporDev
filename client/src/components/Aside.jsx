@@ -1,31 +1,29 @@
 import AsideCard from "./AsideCard";
-import PracticeData from "../data/PracticeData";
+// import PracticeData from "../data/PracticeData";
 import { QUERY_REQUESTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 
 const Aside = () => {
-  const requests = PracticeData;
-  // const { loading, error, data } = useQuery(QUERY_REQUESTS);
-  // const requestData = data?.requests || {};
-  console.log(requests);
-  // if (loading) {
-  //   return <h2>LOADING...</h2>;
-  // }
-  // if (error) {
-  //   return <h2>Something went wrong!</h2>;
-  // }
+  // const requests = PracticeData;
+  const { loading, error, data } = useQuery(QUERY_REQUESTS);
+  const requestData = data?.requests || {};
+  console.log(requestData);
+  if (loading) {
+    return <h2>LOADING...</h2>;
+  }
+  if (error) {
+    return <h2>Something went wrong!</h2>;
+  }
 
   return (
     <>
-      {/* (!loading && !error && ( */}
       {/* <div className="h-3/4"> */}
       <aside className="bg-base-100 md:h-3/4 w-full h-60 md:w-60 md:items-center md:overflow-y-auto md:absolute relative flex flex-wrap">
-        {requests.map((request) => (
-          <AsideCard key={request.username} request={request} />
+        {requestData.map((request) => (
+          <AsideCard key={request._id} request={request} />
         ))}
       </aside>
       {/* </div> */}
-      {/* )) */}
     </>
   );
 };
