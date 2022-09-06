@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { FaBars, FaUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import Auth from "../utils/auth";
 
 const Nav = ({ fixed }) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const logout = (e) => {
+    e.preventDefault();
+    Auth.logout();
+  };
   return (
     // <div className="flex">
     //     <a href="#" className="no-underline text-2xl px-2 hover:text-base-300 duration-300">Home</a>
@@ -61,31 +67,58 @@ const Nav = ({ fixed }) => {
         >
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
             <li className="nav-item">
-              <a
-                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white duration-300 hover:opacity-75"
-                href="/"
-              >
-                <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i>
-                <span className="ml-2">Home</span>
-              </a>
+              <Link to="/">
+                <button
+                  type="button"
+                  className="inline-block mr-4 px-6 py-2.5 bg-primary text-primary-content font-medium text-md leading-tight uppercase rounded-lg shadow-md hover:bg-primary-focus hover:shadow-xl transition duration-300 ease-in-out"
+                >
+                  Home
+                </button>
+                {/* <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i>
+                <span className="ml-2">Home</span> */}
+              </Link>
             </li>
             <li className="nav-item">
+              <Link to="/signup">
+                <button
+                  type="button"
+                  className="inline-block mx-4 px-6 py-2.5 bg-primary text-primary-content font-medium text-md leading-tight uppercase rounded-lg shadow-md hover:bg-primary-focus hover:shadow-xl transition duration-300 ease-in-out"
+                >
+                  Signup
+                </button>
+                {/* <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i>
+                <span className="ml-2">Signup</span> */}
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/login">
+                <button
+                  type="button"
+                  className="inline-block mx-4 px-6 py-2.5 bg-primary text-primary-content font-medium text-md leading-tight uppercase rounded-lg shadow-md hover:bg-primary-focus hover:shadow-xl transition duration-300 ease-in-out"
+                >
+                  Login
+                </button>
+                {/* <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i>
+                <span className="ml-2">Login</span> */}
+              </Link>
+            </li>
+            {/* <li className="nav-item">
               <a
                 className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white duration-300 hover:opacity-75"
                 href="/login"
               >
                 <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i>
-                <span className="ml-2">Login</span>
+                <span className="ml-2">Logout</span>
               </a>
-            </li>
+            </li> */}
             <li className="nav-item">
-              <a
-                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white duration-300 hover:opacity-75"
-                href="/signup"
+              <button
+                type="button"
+                className="inline-block ml-4 px-6 py-2.5 bg-primary text-primary-content font-medium text-md leading-tight uppercase rounded-lg shadow-md hover:bg-primary-focus hover:shadow-xl transition duration-300 ease-in-out"
+                onClick={logout}
               >
-                <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i>
-                <span className="ml-2">Signup</span>
-              </a>
+                Logout
+              </button>
             </li>
           </ul>
         </div>

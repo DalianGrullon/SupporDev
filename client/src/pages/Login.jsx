@@ -1,39 +1,85 @@
-import React from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Auth from "../utils/auth";
+import { DEVELOPER_LOGIN, REQUESTER_LOGIN } from "../utils/mutations";
+import { useMutation } from "@apollo/client";
 
 const Login = () => {
-  return (
-    //     <div className="form-container">
-    //         <h1>login form</h1>
-    //         <form action="#">
-    //             <div className='control'>
-    //                 <label htmlFor="name">Name</label>
-    //                 <input type="text" name='name'id='name' />
-    //             </div>
-    //             <div className='control'>
-    //             <label htmlFor="psw">Password</label>
-    //             <input type="password" name='psw' id='psw' />
-    //             </div>
-    //             <span><input type="checkbox" /> Remember me.</span>
-    //             <div className='control'>
-    //             <input type="submit" value="Login"/>
-    //             </div>
-    //         </form>
-    //         <div className='link'>
-    //         <a href="#">Forgot Password ?</a>
-    //         </div>
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+    role: "",
+  });
 
-    //     </div>
-    // )
+  const [loginRequester] = useMutation(REQUESTER_LOGIN);
+  const [loginDeveloper] = useMutation(DEVELOPER_LOGIN);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData({ ...loginData, [name]: value });
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    // try {
+    if (loginData.role === "requester") {
+      const loginMutation = await loginRequester({
+        variables: {
+          email: loginData.email,
+          password: loginData.password,
+        },
+      });
+      const token = loginMutation.data.requesterLogin.token;
+      Auth.login(token);
+    }
+    if (loginData.role === "developer") {
+      const loginMutation = await loginDeveloper({
+        variables: {
+          email: loginData.email,
+          password: loginData.password,
+        },
+      });
+      const token = loginMutation.data.developerLogin.token;
+      Auth.login(token);
+    }
+
+    setLoginData({
+      email: "",
+      password: "",
+      role: "",
+    });
+  };
+
+  return (
     <div className="block p-6 rounded-lg shadow-lg bg-base-300 max-w-md md:col-start-6 md:col-span-4  mb-24">
-      <form>
+      <form className="form" onSubmit={handleFormSubmit}>
+        <select
+          className="form-select bg-base-100 rounded-lg mb-6 w-full"
+          name="role"
+          id="role"
+          defaultValue="choose"
+          onChange={handleInputChange}
+        >
+          <option value="choose" disabled>
+            Choose account type
+          </option>
+          <option name="developer" value="developer">
+            Developer
+          </option>
+          <option name="requester" value="requester">
+            Requester
+          </option>
+        </select>
         <div className="form-group mb-6">
           <label
-            htmlFor="exampleInputEmail2"
+            htmlFor="email"
             className="form-label inline-block mb-2 text-gray-700"
           >
             Email address
           </label>
           <input
+            name="email"
             type="email"
             className="form-control
         block
@@ -50,19 +96,20 @@ const Login = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-emerald-800 focus:outline-none"
-            id="exampleInputEmail2"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
+            id="email"
+            placeholder="Email address"
+            onChange={handleInputChange}
           />
         </div>
         <div className="form-group mb-6">
           <label
-            htmlFor="exampleInputPassword2"
+            htmlFor="password"
             className="form-label inline-block mb-2 text-gray-700"
           >
             Password
           </label>
           <input
+            name="password"
             type="password"
             className="form-control block
         w-full
@@ -78,13 +125,15 @@ const Login = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-emerald-800 focus:outline-none"
-            id="exampleInputPassword2"
-            placeholder="Password"
+            id="password"
+            placeholder="******"
+            onChange={handleInputChange}
           />
         </div>
 
         <button
           type="submit"
+          onClick={handleFormSubmit}
           className="
       w-full
       px-6
@@ -108,12 +157,12 @@ const Login = () => {
         </button>
         <p className="text-gray-800 mt-6 text-center">
           Not a member?{" "}
-          <a
-            href="/signup"
+          <Link
+            to="/signup"
             className="text-primary hover:text-primary-focus focus:text-emerald-700 transition duration-200 ease-in-out"
           >
             Sign Up!
-          </a>
+          </Link>
         </p>
       </form>
     </div>
