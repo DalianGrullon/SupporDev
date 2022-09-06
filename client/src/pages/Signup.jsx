@@ -1,20 +1,21 @@
 import { useState } from "react";
 import Auth from "../utils/auth";
-// import { ADD_USER } from "../utils/mutations";
-// import { useMutation } from "@apollo/client";
+import { ADD_DEVELOPER, ADD_REQUESTER } from "../utils/mutations";
+import { useMutation } from "@apollo/client";
 
 const Signup = () => {
   const [userFormData, setUserFormData] = useState({
-    username: "",
+    userName: "",
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     role: "",
   });
-  const [validated] = useState(false);
+  // const [validated] = useState(false);
   // const [showAlert, setShowAlert] = useState(false);
-  // const [addUser] = useMutation(ADD_USER);
+  const [addRequester] = useMutation(ADD_REQUESTER);
+  const [addDeveloper] = useMutation(ADD_DEVELOPER);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,6 +24,34 @@ const Signup = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    if (userFormData.role === "requester") {
+      const mutationResponse = await addRequester({
+        variables: {
+          userName: userFormData.userName,
+          firstName: userFormData.firstName,
+          lastName: userFormData.lastName,
+          email: userFormData.email,
+          password: userFormData.password,
+          role: userFormData.role,
+        },
+      });
+      const token = mutationResponse.data.addRequester.token;
+      Auth.login(token);
+    }
+    if (userFormData.role === "developer") {
+      const mutationResponse = await addDeveloper({
+        variables: {
+          userName: userFormData.userName,
+          firstName: userFormData.firstName,
+          lastName: userFormData.lastName,
+          email: userFormData.email,
+          password: userFormData.password,
+          role: userFormData.role,
+        },
+      });
+      const token = mutationResponse.data.addDeveloper.token;
+      Auth.login(token);
+    }
 
     // const form = e.currentTarget;
     // if (form.checkValidity() === false) {
@@ -38,14 +67,14 @@ const Signup = () => {
     //     setShowAlert(true)
     // }
 
-    //     setUserFormData({
-    //       username: "",
-    //       firstName: "",
-    //       lastName: "",
-    //       email: "",
-    //       password: "",
-    //       role: "",
-    //     });
+    setUserFormData({
+      userName: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      role: "",
+    });
   };
 
   return (
@@ -107,27 +136,29 @@ const Signup = () => {
     //   </form>
     // </div>
     <div className="block p-6 rounded-lg shadow-lg bg-base-300 max-w-md col-start-6 col-span-4 ">
-      <form className="form">
+      <form className="form" onSubmit={handleFormSubmit}>
         <select
           className="form-select bg-base-100 rounded-lg mb-6 w-full"
           name="role"
           id="role"
-          value="choose"
+          defaultValue="choose"
+          onChange={handleInputChange}
         >
-          <option value="choose" disabled hidden>
+          <option value="choose" disabled>
             Choose account type
           </option>
-          <option name="developer" value={userFormData.role}>
+          <option name="developer" value="developer">
             Developer
           </option>
-          <option name="requester" value={userFormData.role}>
+          <option name="requester" value="requester">
             Requester
           </option>
         </select>
         <div className="grid grid-cols-2 gap-4">
           <div className="form-group mb-6">
             <input
-              type="text"
+              name="firstName"
+              type="firstName"
               className="form-control
           block
           w-full
@@ -143,14 +174,15 @@ const Signup = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleInput123"
-              aria-describedby="emailHelp123"
+              id="firstName"
               placeholder="First name"
+              onChange={handleInputChange}
             />
           </div>
           <div className="form-group mb-6">
             <input
-              type="text"
+              name="lastName"
+              type="lastName"
               className="form-control
           block
           w-full
@@ -166,14 +198,15 @@ const Signup = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleInput124"
-              aria-describedby="emailHelp124"
+              id="lastName"
               placeholder="Last name"
+              onChange={handleInputChange}
             />
           </div>
         </div>
         <div className="form-group mb-6">
           <input
+            name="email"
             type="email"
             className="form-control block
         w-full
@@ -189,12 +222,37 @@ const Signup = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            id="exampleInput125"
+            id="email"
             placeholder="Email address"
+            onChange={handleInputChange}
           />
         </div>
         <div className="form-group mb-6">
           <input
+            name="userName"
+            type="userName"
+            className="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-base-100 bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            id="userName"
+            placeholder="User Name"
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group mb-6">
+          <input
+            name="password"
             type="password"
             className="form-control block
         w-full
@@ -210,13 +268,15 @@ const Signup = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-            id="exampleInput126"
-            placeholder="Password"
+            id="password"
+            placeholder="******"
+            onChange={handleInputChange}
           />
         </div>
         <div className="form-group form-check text-center mb-6"></div>
         <button
           type="submit"
+          onClick={handleFormSubmit}
           className="
       w-full
       px-6
