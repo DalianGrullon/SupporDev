@@ -15,8 +15,6 @@ const ProjectCard = () => {
   const { loading, error, data } = useQuery(QUERY_REQUEST, {
     variables: { id: projectId }
   });
-  const { request } = data || {};
-  const { requester } = request;
   
   if (loading) {
     return <h2>LOADING...</h2>;
@@ -24,6 +22,9 @@ const ProjectCard = () => {
   if (error) {
     return <h2>Something went wrong!</h2>;
   }
+
+  const { request } = data || {};
+  const { requester } = request;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
