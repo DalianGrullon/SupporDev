@@ -111,10 +111,14 @@ const resolvers = {
 
       return { token, developer };
     },
-    addRequest: async (parent, args) => {
-      const request = await Request.create(args);
+    addRequest: async (parent, args, context) => {
+      const request = await Request.create({
+        title: args.title,
+        description: args.description,
+        requester: context.user._id
+      });
       const requester = await Requester.findOneAndUpdate(
-        { _id: args.requester },
+        { _id: context.user._id },
         { $push: { requests: request._id } }
       );
 
