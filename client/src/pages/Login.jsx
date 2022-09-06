@@ -5,82 +5,82 @@ import { DEVELOPER_LOGIN, REQUESTER_LOGIN } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
 
 const Login = () => {
-    const [loginData, setLoginData] = useState({
-        email: "",
-        password: "",
-        role: "",
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+    role: "",
+  });
+
+  const [loginRequester] = useMutation(REQUESTER_LOGIN);
+  const [loginDeveloper] = useMutation(DEVELOPER_LOGIN);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData({ ...loginData, [name]: value });
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    // try {
+    if (loginData.role === "requester") {
+      const loginMutation = await loginRequester({
+        variables: {
+          email: loginData.email,
+          password: loginData.password,
+        },
+      });
+      const token = loginMutation.data.requesterLogin.token;
+      Auth.login(token);
+    }
+    if (loginData.role === "developer") {
+      const loginMutation = await loginDeveloper({
+        variables: {
+          email: loginData.email,
+          password: loginData.password,
+        },
+      });
+      const token = loginMutation.data.developerLogin.token;
+      Auth.login(token);
+    }
+
+    setLoginData({
+      email: "",
+      password: "",
+      role: "",
     });
-
-    const [loginRequester] = useMutation(REQUESTER_LOGIN);
-    const [loginDeveloper] = useMutation(DEVELOPER_LOGIN);
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setLoginData({ ...loginData, [name]: value });
-    };
-
-    const handleFormSubmit = async (e) => {
-        e.preventDefault();
-
-        // try {
-        if (loginData.role === "requester") {
-            const loginMutation = await loginRequester({
-                variables: {
-                    email: loginData.email,
-                    password: loginData.password,
-                },
-            });
-            const token = loginMutation.data.requesterLogin.token;
-            Auth.login(token);
-        }
-        if (loginData.role === "developer") {
-            const loginMutation = await loginDeveloper({
-                variables: {
-                    email: loginData.email,
-                    password: loginData.password,
-                },
-            });
-            const token = loginMutation.data.developerLogin.token;
-            Auth.login(token);
-        }
-
-        setLoginData({
-            email: "",
-            password: "",
-            role: "",
-        });
-    };
-    return (
-        <div className="block p-6 rounded-lg shadow-lg bg-base-300 max-w-md md:col-start-6 md:col-span-4  mb-24 bg-gradient-to-br from-blue-300 to-blue-700 ">
-            <form className="form" onSubmit={handleFormSubmit}>
-                <select
-                    className="form-select bg-base-100 rounded-lg mb-6 w-full "
-                    name="role"
-                    id="role"
-                    defaultValue="choose"
-                    onChange={handleInputChange}
-                >
-                    <option value="choose" disabled>
-                        Choose account type
-                    </option>
-                    <option name="developer" value="developer">
-                        Developer
-                    </option>
-                    <option name="requester" value="requester">
-                        Requester
-                    </option>
-                </select>
-                <div className="form-group mb-6">
-                    <label
-                        htmlFor="email"
-                        className="form-label inline-block mb-2 text-primary-content"
-                    >
-                        Email address
-                    </label>
-                    <input
-                        name="email"
-                        type="email"
-                        className="form-control
+  };
+  return (
+    <div className="block p-6 rounded-lg shadow-lg max-w-md md:col-start-5 md:col-span-6 col-span-8 col-start-3 my-12 mx-auto bg-gradient-to-br from-neutral-focus to-slate-400 ">
+      <form className="form" onSubmit={handleFormSubmit}>
+        <select
+          className="form-select bg-base-100 rounded-lg mb-6 w-full "
+          name="role"
+          id="role"
+          defaultValue="choose"
+          onChange={handleInputChange}
+        >
+          <option value="choose" disabled>
+            Choose account type
+          </option>
+          <option name="developer" value="developer">
+            Developer
+          </option>
+          <option name="requester" value="requester">
+            Requester
+          </option>
+        </select>
+        <div className="form-group mb-6">
+          <label
+            htmlFor="email"
+            className="form-label inline-block mb-2 text-primary-content"
+          >
+            Email address
+          </label>
+          <input
+            name="email"
+            type="email"
+            className="form-control
         block
         w-full
         px-3
@@ -95,22 +95,22 @@ const Login = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-emerald-600 focus:outline-none"
-                        id="email"
-                        placeholder="Email address"
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <div className="form-group mb-6">
-                    <label
-                        htmlFor="password"
-                        className="form-label inline-block mb-2 text-primary-content"
-                    >
-                        Password
-                    </label>
-                    <input
-                        name="password"
-                        type="password"
-                        className="form-control block
+            id="email"
+            placeholder="Email address"
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group mb-6">
+          <label
+            htmlFor="password"
+            className="form-label inline-block mb-2 text-primary-content"
+          >
+            Password
+          </label>
+          <input
+            name="password"
+            type="password"
+            className="form-control block
         w-full
         px-3
         py-1.5
@@ -124,16 +124,16 @@ const Login = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-emerald-600 focus:outline-none"
-                        id="password"
-                        placeholder="******"
-                        onChange={handleInputChange}
-                    />
-                </div>
+            id="password"
+            placeholder="******"
+            onChange={handleInputChange}
+          />
+        </div>
 
-                <button
-                    type="submit"
-                    onClick={handleFormSubmit}
-                    className="
+        <button
+          type="submit"
+          onClick={handleFormSubmit}
+          className="
       w-full
       px-6
       py-2.5
@@ -145,27 +145,27 @@ const Login = () => {
       uppercase
       rounded
       shadow-md
-      hover:bg-primary-focus hover:shadow-lg
-      focus:bg-emerald-700 focus:shadow-lg focus:outline-none focus:ring-0
-      active:bg-emerald-800 active:shadow-lg
+      hover:bg-primary-focus hover:shadow-lg hover:scale-105
+       focus:shadow-lg focus:outline-none focus:ring-0
+       active:shadow-lg
       transition
-      duration-150
+      duration-300
       ease-in-out"
-                >
-                    Sign in
-                </button>
-                <p className="text-gray-800 mt-6 text-center">
-                    Not a member?{" "}
-                    <Link
-                        to="/signup"
-                        className="text-primary-content hover:text-teal-300 focus:text-emerald-700 transition duration-200 ease-in-out"
-                    >
-                        Sign Up!
-                    </Link>
-                </p>
-            </form>
-        </div>
-    );
+        >
+          Sign in
+        </button>
+        <p className="text-gray-800 mt-6 text-center">
+          Not a member?{" "}
+          <Link
+            to="/signup"
+            className="text-primary-content hover:text-teal-300 focus:text-emerald-700 transition duration-200 ease-in-out"
+          >
+            Sign Up!
+          </Link>
+        </p>
+      </form>
+    </div>
+  );
 };
 
 export default Login;

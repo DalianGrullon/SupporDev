@@ -33,7 +33,7 @@ const CreateRequest = () => {
   };
 
   return (
-    <div className="block p-6 rounded-lg shadow-lg text-primary bg-gradient-to-br from-neutral-focus to-blue-500 max-w-md md:col-start-6 md:col-span-4  my-12">
+    <div className="block p-6 rounded-lg shadow-lg text-primary bg-gradient-to-br from-neutral-focus to-slate-400 max-w-md md:col-start-5 md:col-span-6 col-span-8 col-start-3  my-12">
       <form className="form" onSubmit={handleFormSubmit}>
         <div className="form-group mb-6">
           <label
