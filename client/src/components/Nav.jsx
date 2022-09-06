@@ -71,7 +71,7 @@ const Nav = ({ fixed }) => {
               <Link to="/">
                 <button
                   type="button"
-                  className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
+                  className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg  hover:bg-secondary hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
                 >
                   Home
                 </button>
@@ -103,36 +103,30 @@ const Nav = ({ fixed }) => {
                 <span className="ml-2">Home</span> */}
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/login">
+            {!Auth.loggedIn() ? (
+              <li className="nav-item">
+                <Link to="/login">
+                  <button
+                    type="button"
+                    className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105  hover:shadow-xl transition duration-300 ease-in-out"
+                  >
+                    Login
+                  </button>
+                  {/* <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i>
+                <span className="ml-2">Login</span> */}
+                </Link>
+              </li>
+            ) : (
+              <li className="nav-item">
                 <button
                   type="button"
-                  className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105  hover:shadow-xl transition duration-300 ease-in-out"
+                  className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
+                  onClick={logout}
                 >
-                  Login
+                  Logout
                 </button>
-                {/* <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i>
-                <span className="ml-2">Login</span> */}
-              </Link>
-            </li>
-            {/* <li className="nav-item">
-              <a
-                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white duration-300 hover:opacity-75"
-                href="/login"
-              >
-                <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i>
-                <span className="ml-2">Logout</span>
-              </a>
-            </li> */}
-            <li className="nav-item">
-              <button
-                type="button"
-                className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
-                onClick={logout}
-              >
-                Logout
-              </button>
-            </li>
+              </li>
+            )}
           </ul>
         </div>
       </div>

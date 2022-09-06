@@ -50,7 +50,6 @@ const Login = () => {
             role: "",
         });
     };
-
     return (
         <div className="block p-6 rounded-lg shadow-lg bg-base-300 max-w-md md:col-start-6 md:col-span-4  mb-24 bg-gradient-to-br from-blue-300 to-blue-700 ">
             <form className="form" onSubmit={handleFormSubmit}>
