@@ -70,7 +70,7 @@ const Nav = ({ fixed }) => {
               <Link to="/">
                 <button
                   type="button"
-                  className="inline-block mr-4 px-6 py-2.5 bg-primary text-primary-content font-medium text-md leading-tight uppercase rounded-lg shadow-md hover:bg-primary-focus hover:shadow-xl transition duration-300 ease-in-out"
+                  className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
                 >
                   Home
                 </button>
@@ -78,23 +78,23 @@ const Nav = ({ fixed }) => {
                 <span className="ml-2">Home</span> */}
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link to="/signup">
                 <button
                   type="button"
-                  className="inline-block mx-4 px-6 py-2.5 bg-primary text-primary-content font-medium text-md leading-tight uppercase rounded-lg shadow-md hover:bg-primary-focus hover:shadow-xl transition duration-300 ease-in-out"
+                  className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
                 >
                   Signup
-                </button>
-                {/* <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i>
+                </button> */}
+            {/* <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i>
                 <span className="ml-2">Signup</span> */}
-              </Link>
-            </li>
+            {/* </Link>
+            </li> */}
             <li className="nav-item">
               <Link to="/request">
                 <button
                   type="button"
-                  className="inline-block mr-4 px-6 py-2.5 bg-primary text-primary-content font-medium text-md leading-tight uppercase rounded-lg shadow-md hover:bg-primary-focus hover:shadow-xl transition duration-300 ease-in-out"
+                  className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
                 >
                   Create Request
                 </button>
@@ -106,7 +106,7 @@ const Nav = ({ fixed }) => {
               <Link to="/login">
                 <button
                   type="button"
-                  className="inline-block mx-4 px-6 py-2.5 bg-primary text-primary-content font-medium text-md leading-tight uppercase rounded-lg shadow-md hover:bg-primary-focus hover:shadow-xl transition duration-300 ease-in-out"
+                  className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105  hover:shadow-xl transition duration-300 ease-in-out"
                 >
                   Login
                 </button>
@@ -126,7 +126,7 @@ const Nav = ({ fixed }) => {
             <li className="nav-item">
               <button
                 type="button"
-                className="inline-block ml-4 px-6 py-2.5 bg-primary text-primary-content font-medium text-md leading-tight uppercase rounded-lg shadow-md hover:bg-primary-focus hover:shadow-xl transition duration-300 ease-in-out"
+                className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
                 onClick={logout}
               >
                 Logout
