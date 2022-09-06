@@ -60,7 +60,7 @@ const ProjectCard = () => {
   };
 
   return (
-    <div className="card text-4xl text-primary bg-gradient-to-br from-neutral-focus to-slate-400 col-span-6 col-start-3 row-span-4 row-start-2 mr-4 mx-auto shadow-lg">
+    <div className="card text-4xl text-primary bg-gradient-to-br from-neutral-focus to-slate-400 col-span-4 md:col-start-5 col-start-2 mr-4 mx-auto shadow-lg">
       <div className="card-body w-full">
         <div className="card-title rounded-lg text-3xl p-3 justify-between flex bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content shadow">
           <div className="flex items-center">

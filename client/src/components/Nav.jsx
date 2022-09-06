@@ -44,7 +44,8 @@ const Nav = ({ fixed }) => {
           <div className="flex">
             <FaUserCircle className="text-neutral-content" size={70} />
             <Link
-              className="text-4xl font-bold leading-relaxed inline-block mr-4 pl-4 py-2 whitespace-nowrap text-neutral-content"
+              className="text-4xl font-bold leading-relaxed inline-block mr-4 pl-4 py-2 whitespace-nowrap text-primary-content hover:scale-105 hover:text-primary duration-300 ease-in-out"
+              style={{ textShadow: "2px 4px 4px #284296" }}
               to="/"
             >
               SupporDev

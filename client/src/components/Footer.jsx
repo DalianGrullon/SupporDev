@@ -15,7 +15,7 @@ const Footer = () => {
             >
               {" "}
               <SiGithub
-                className="hover:text-base-200 hover:scale-105 duration-300 "
+                className="hover:text-primary hover:scale-105 duration-300 "
                 size={60}
               />
             </a>
@@ -30,7 +30,7 @@ const Footer = () => {
             >
               {" "}
               <SiGithub
-                className="hover:text-base-200 hover:scale-105 duration-300"
+                className="hover:text-primary hover:scale-105 duration-300"
                 size={60}
               />
             </a>
@@ -45,7 +45,7 @@ const Footer = () => {
             >
               {" "}
               <SiGithub
-                className="hover:text-base-200 hover:scale-105 duration-300"
+                className="hover:text-primary hover:scale-105 duration-300"
                 size={60}
               />
             </a>
@@ -60,7 +60,7 @@ const Footer = () => {
             >
               {" "}
               <SiGithub
-                className="hover:text-base-200 hover:scale-105 duration-300"
+                className="hover:text-primary hover:scale-105 duration-300"
                 size={60}
               />
             </a>
