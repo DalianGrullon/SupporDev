@@ -52,7 +52,7 @@ const Login = () => {
   };
 
   return (
-    <div className="block p-6 rounded-lg shadow-lg bg-base-300 max-w-md md:col-start-6 md:col-span-4  mb-24">
+    <div className="block p-6 rounded-lg shadow-lg bg-base-300 max-w-md md:col-start-6 md:col-span-4  my-12">
       <form className="form" onSubmit={handleFormSubmit}>
         <select
           className="form-select bg-base-100 rounded-lg mb-6 w-full"
