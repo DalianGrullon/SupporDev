@@ -91,6 +91,18 @@ const Nav = ({ fixed }) => {
               </Link>
             </li>
             <li className="nav-item">
+              <Link to="/request">
+                <button
+                  type="button"
+                  className="inline-block mr-4 px-6 py-2.5 bg-primary text-primary-content font-medium text-md leading-tight uppercase rounded-lg shadow-md hover:bg-primary-focus hover:shadow-xl transition duration-300 ease-in-out"
+                >
+                  Create Request
+                </button>
+                {/* <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i>
+                <span className="ml-2">Home</span> */}
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link to="/login">
                 <button
                   type="button"
