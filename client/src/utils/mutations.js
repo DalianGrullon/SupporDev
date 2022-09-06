@@ -21,11 +21,10 @@ export const ADD_REQUESTER = gql`
 `;
 
 export const ADD_REQUEST = gql`
-  mutation addRequest($title: String!, $description: String!, $requester: ID!) {
+  mutation addRequest($title: String!, $description: String!) {
     addRequest(
       title: $title
       description: $description
-      requester: $requester
     ) {
       _id
       title

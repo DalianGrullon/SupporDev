@@ -66,7 +66,7 @@ const typeDefs = gql`
       email: String!
       password: String!
     ): developerAuth
-    addRequest(title: String!, description: String!, requester: ID!): Request
+    addRequest(title: String!, description: String!): Request
     requesterLogin(email: String!, password: String!): requesterAuth
     developerLogin(email: String!, password: String!): developerAuth
   }
