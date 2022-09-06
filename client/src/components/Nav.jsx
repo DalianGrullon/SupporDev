@@ -43,12 +43,12 @@ const Nav = ({ fixed }) => {
         <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           <div className="flex">
             <FaUserCircle className="text-neutral-content" size={70} />
-            <a
+            <Link
               className="text-4xl font-bold leading-relaxed inline-block mr-4 pl-4 py-2 whitespace-nowrap text-neutral-content"
-              href="#pablo"
+              to="/"
             >
               SupporDev
-            </a>
+            </Link>
           </div>
           <button
             className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
