@@ -1,4 +1,4 @@
-// import ProjectCardHeader from "../components/ProjectCardHeader";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -12,9 +12,11 @@ const Home = () => {
             with real world experience? If so, SupporDev is the place for you!
           </p>
           <div className="card-actions justify-end">
-            <a href="/signup">
-              <button className="btn">Get Started!</button>
-            </a>
+            <Link to="/signup">
+              <button className="btn bg-primary text-primary-content hover:bg-primary-focus duration-300 ease-in-out border-none rounded-lg text-lg">
+                Get Started!
+              </button>
+            </Link>
           </div>
         </div>
       </div>

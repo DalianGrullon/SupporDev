@@ -30,9 +30,8 @@ const Login = () => {
           password: loginData.password,
         },
       });
-      const token = loginMutation.data.loginRequester.token;
+      const token = loginMutation.data.requesterLogin.token;
       Auth.login(token);
-      console.log(token);
     }
     if (loginData.role === "developer") {
       const loginMutation = await loginDeveloper({
@@ -41,13 +40,9 @@ const Login = () => {
           password: loginData.password,
         },
       });
-      const token = loginMutation.data.loginDeveloper.token;
-      console.log(token);
+      const token = loginMutation.data.developerLogin.token;
       Auth.login(token);
     }
-    // } catch (e) {
-    //   console.log("dude");
-    // }
 
     setLoginData({
       email: "",
