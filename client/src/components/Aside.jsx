@@ -18,7 +18,7 @@ const Aside = () => {
   return (
     <>
       {/* <div className="h-3/4"> */}
-      <aside className="bg-base-100 md:h-3/4 w-full h-60 md:w-60 md:items-center md:overflow-y-auto md:absolute relative flex flex-wrap">
+      <aside className="bg-base-100 md:h-3/4 w-full h-60 md:w-60 md:items-center md:overflow-y-auto md:absolute relative flex overflow-x-auto md:block ">
         {requestData.map((request) => (
           <AsideCard key={request._id} request={request} />
         ))}

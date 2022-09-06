@@ -15,5 +15,9 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+    "daisyui": "^2.24.0",
+    "react-icons": "^4.4.0"
   }
 }

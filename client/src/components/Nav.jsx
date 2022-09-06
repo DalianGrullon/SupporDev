@@ -32,7 +32,7 @@ const Nav = ({ fixed }) => {
     //     <Navbar.Link href="/navbars">About</Navbar.Link>
     //   </Navbar.Collapse>
     // </Navbar>
-    <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gradient-to-br from-neutral-focus to-slate-400 mb-3">
+    <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gradient-to-br from-neutral-focus to-slate-400 ">
       <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           <div className="flex">
