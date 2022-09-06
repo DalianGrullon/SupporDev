@@ -7,7 +7,7 @@ const Aside = () => {
   // const requests = PracticeData;
   const { loading, error, data } = useQuery(QUERY_REQUESTS);
   const requestData = data?.requests || {};
-
+  console.log(requestData);
   if (loading) {
     return <h2>LOADING...</h2>;
   }
@@ -18,7 +18,9 @@ const Aside = () => {
   return (
     <>
       {/* <div className="h-3/4"> */}
-      <aside className="bg-base-100 md:h-3/4 w-full h-60 md:w-60 md:items-center md:overflow-y-auto md:absolute relative flex flex-wrap">
+      {/* my changes to aside take away scroll bar */}
+      {/* <div className="h-3/4 overflow-y-auto"> */}
+      <aside className="w-full justify-between items-center md:flex-row flex-col sm:mb-16">
         {requestData.map((request) => (
           <AsideCard key={request._id} request={request} />
         ))}
