@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="text-primary bg-base-100 md:col-span-8 md:col-start-4 md:row-span-4 rounded-xl md:row-start-2 mx-auto">
+    <div className="text-primary bg-base-100 col-span-8 col-start-4 row-span-4 rounded-xl row-start-2 mx-auto">
       <div className="card w-auto bg-gradient-to-br from-neutral-focus to-slate-400 text-neutral-content shadow-2xl">
         <div className="card-body">
           <h2 className="card-title text-4xl">Welcome to SupporDev!</h2>
