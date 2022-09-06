@@ -64,7 +64,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="block p-6 rounded-lg shadow-lg bg-base-300 max-w-md col-start-6 col-span-4 mb-24">
+    <div className="block p-6 rounded-lg shadow-lg bg-gradient-to-br from-neutral-focus to-slate-400 max-w-md md:col-start-6 md:col-span-6 col-start-3 col-span-8 my-12">
       <form className="form" onSubmit={handleFormSubmit}>
         <select
           className="form-select bg-base-100 rounded-lg mb-6 w-full"
@@ -216,13 +216,13 @@ const Signup = () => {
       text-xs
       leading-tight
       uppercase
-      rounded
+      rounded-lg
       shadow-md
-      hover:bg-blue-700 hover:shadow-lg
+      hover:bg-blue-700 hover:scale-105 hover:shadow-lg
       focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
       active:bg-blue-800 active:shadow-lg
       transition
-      duration-150
+      duration-300
       ease-in-out"
         >
           Sign up

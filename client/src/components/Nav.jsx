@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaBars, FaUserCircle } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 
@@ -10,42 +10,14 @@ const Nav = ({ fixed }) => {
     Auth.logout();
   };
   return (
-    // <div className="flex">
-    //     <a href="#" className="no-underline text-2xl px-2 hover:text-base-300 duration-300">Home</a>
-    //     <a href="/login" className="no-underline text-2xl px-2 hover:text-base-300 duration-300">Login</a>
-    //     <a href="#" className="no-underline text-2xl px-2 hover:text-base-300 duration-300">Request</a>
-    //     <a href="#" className="no-underline text-2xl pl-2 hover:text-base-300 duration-300">Signup</a>
-    // </div>
-
-    // <Navbar fluid={true} rounded={true}>
-    //   <Navbar.Brand>
-    //     <img
-    //       src="https://flowbite.com/docs/images/logo.svg"
-    //       className="mr-3 h-6 sm:h-9"
-    //       alt="Flowbite Logo"
-    //     />
-    //     <span className="self-center whitespace-nowrap text-4xl font-semibold text-primary dark:text-white">
-    //       SupporDev
-    //     </span>
-    //   </Navbar.Brand>
-    //   <Navbar.Toggle />
-    //   <Navbar.Collapse>
-    //     <Navbar.Link href="/" active={true}>
-    //       Home
-    //     </Navbar.Link>
-    //     <Navbar.Link href="/login">Login</Navbar.Link>
-    //     <Navbar.Link href="/signup">Signup</Navbar.Link>
-    //     <Navbar.Link href="/navbars">About</Navbar.Link>
-    //   </Navbar.Collapse>
-    // </Navbar>
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gradient-to-br from-neutral-focus to-slate-400 ">
       <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           <div className="flex">
-            <FaUserCircle className="text-neutral-content" size={70} />
+            <img src="/images/SupporDev.png" alt="icon" className="h-20" />
             <Link
-              className="text-4xl font-bold leading-relaxed inline-block mr-4 pl-4 py-2 whitespace-nowrap text-primary-content hover:scale-105 hover:text-primary duration-300 ease-in-out"
-              style={{ textShadow: "2px 4px 4px #284296" }}
+              className="text-4xl font-bold leading-relaxed inline-block mr-4 pl-4 py-2 whitespace-nowrap text-primary-content hover:scale-105 hover:text-blue-500 duration-300 ease-in-out"
+              style={{ textShadow: "2px 4px 4px #496551" }}
               to="/"
             >
               SupporDev
@@ -71,7 +43,7 @@ const Nav = ({ fixed }) => {
               <Link to="/">
                 <button
                   type="button"
-                  className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg  hover:bg-secondary hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
+                  className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
                 >
                   Home
                 </button>
