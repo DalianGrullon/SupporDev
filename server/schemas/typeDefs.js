@@ -48,6 +48,7 @@ const typeDefs = gql`
   type Query {
     requester(_id: ID!): Requester
     requests: [Request]
+    request(_id: ID!): Request
   }
 
   type Mutation {
