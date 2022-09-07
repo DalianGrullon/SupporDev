@@ -31,6 +31,10 @@ const developerSchema = new Schema({
     required: true,
     minlength: 5
   },
+  role: {
+    type: String,
+    default: 'developer'
+  },
   contributions: [
     {
       type: Schema.Types.ObjectId,

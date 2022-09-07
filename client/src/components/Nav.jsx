@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
-// import jwtDecode from "jwt-decode";
+import jwtDecode from "jwt-decode";
 
 const Nav = ({ fixed }) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -10,11 +10,13 @@ const Nav = ({ fixed }) => {
     e.preventDefault();
     Auth.logout();
   };
+  
   const checkRole = () => {
     if (Auth.loggedIn()) {
-      const check = Auth.getProfile();
-      console.log(check);
-      return check.role;
+      const check = localStorage.getItem("id_token");
+      const checkToken = jwtDecode(check);
+      console.log(checkToken.data);
+      return checkToken.data.role;
     }
   };
 
