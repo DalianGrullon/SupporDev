@@ -1,10 +1,8 @@
 import AsideCard from "./AsideCard";
-// import PracticeData from "../data/PracticeData";
 import { QUERY_REQUESTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 
 const Aside = () => {
-  // const requests = PracticeData;
   const { loading, error, data } = useQuery(QUERY_REQUESTS);
   const requestData = data?.requests || {};
 
