@@ -13,7 +13,6 @@ const Requests = ({ request }) => {
   const [updateRequest] = useMutation(UPDATE_REQUEST);
   const [deleteRequest] = useMutation(DELETE_REQUEST);
   const handleDeleteRequest = (e) => {
-    // console.log(e.target.value);
     deleteRequest({
       variables: {
         id: request._id,
@@ -21,6 +20,7 @@ const Requests = ({ request }) => {
     });
     window.location.reload();
   };
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -31,14 +31,17 @@ const Requests = ({ request }) => {
     e.preventDefault();
     setShowModal(false);
 
-    setUpdateRequestData({
-      title: `${request.title}`,
-      description: `${request.description}`,
-    });
+    updateRequest({ variables: {
+      id: request._id,
+      title: updateRequestData.title,
+      description: updateRequestData.description
+    }});
+
+    window.location.reload();
   };
 
   return (
-    <div className="card w-full ml-0 bg-base-300 shadow-lg m-12 bg-gradient-to-br from-neutral-focus to-slate-400 text-primary-content duration-300 hover:scale-105">
+    <div className="card w-full ml-0 bg-base-300 shadow-lg m-12 bg-gradient-to-br from-neutral-focus to-slate-400 text-primary-content duration-300">
       <div className="card-body text-primary-content">
         {/* TODO: make this a link to populate the main body of post info */}
         <h3 className="card-title">{request.title}</h3>
@@ -67,7 +70,7 @@ const Requests = ({ request }) => {
                             className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none"
                             type="text"
                             name="title"
-                            placeholder="Project Title"
+                            placeholder={request.title}
                             required
                           />
                         </div>
@@ -75,10 +78,10 @@ const Requests = ({ request }) => {
                           <textarea
                             onChange={handleInputChange}
                             className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none"
-                            placeholder={`${request.description}`}
+                            placeholder={request.description}
+                            required
                             name="description"
                             rows="3"
-                            required
                           ></textarea>
                         </div>
                       </div>
