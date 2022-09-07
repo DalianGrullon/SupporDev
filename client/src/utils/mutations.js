@@ -7,6 +7,7 @@ export const ADD_REQUESTER = gql`
     $lastName: String!
     $email: String!
     $password: String!
+    $role: String!
   ) {
     addRequester(
       userName: $userName
@@ -14,6 +15,7 @@ export const ADD_REQUESTER = gql`
       lastName: $lastName
       email: $email
       password: $password
+      role: $role
     ) {
       token
     }
@@ -25,6 +27,7 @@ export const ADD_REQUEST = gql`
     addRequest(
       title: $title
       description: $description
+      roler: $role
     ) {
       _id
       title
@@ -55,6 +58,7 @@ export const ADD_DEVELOPER = gql`
     $lastName: String!
     $email: String!
     $password: String!
+    $role: String!
   ) {
     addDeveloper(
       userName: $userName
@@ -62,6 +66,7 @@ export const ADD_DEVELOPER = gql`
       lastName: $lastName
       email: $email
       password: $password
+      role: $role
     ) {
       token
     }
