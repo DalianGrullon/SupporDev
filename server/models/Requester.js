@@ -31,6 +31,10 @@ const requesterSchema = new Schema({
     required: true,
     minlength: 5
   },
+  role: {
+    type: String,
+    default: 'requester'
+  },
   requests: [
     {
       type: Schema.Types.ObjectId,
