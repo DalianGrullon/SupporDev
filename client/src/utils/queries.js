@@ -7,7 +7,6 @@ export const QUERY_REQUESTER = gql`
       _id
       userName
       email
-      role
       requests {
         _id
         title
