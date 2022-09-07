@@ -1,19 +1,20 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { Request, Requester, Developer } = require('../models/index');
-const { signToken } = require('../utils/auth');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const { AuthenticationError } = require("apollo-server-express");
+const { request } = require("express");
+const { Request, Requester, Developer } = require("../models/index");
+const { signToken } = require("../utils/auth");
+const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
 const resolvers = {
   Query: {
     requests: async () => {
-      return await Request.find().populate('requester');
+      return await Request.find().populate("requester");
     },
     requester: async (parent, { _id }) => {
-      return await Requester.findById(_id).populate('requests');
+      return await Requester.findById(_id).populate("requests");
     },
     request: async (parent, { _id }) => {
-      return await Request.findById(_id).populate('requester');
-    }
+      return await Request.findById(_id).populate("requester");
+    },
     // categories: async () => {
     //   return await Category.find();
     // },
@@ -115,26 +116,26 @@ const resolvers = {
       const request = await Request.create({
         title: args.title,
         description: args.description,
-        requester: context.user._id
+        requester: context.user._id,
       });
       const requester = await Requester.findOneAndUpdate(
         { _id: context.user._id },
         { $push: { requests: request._id } }
       );
 
-      return await Request.findById(request._id).populate('requester');
+      return await Request.findById(request._id).populate("requester");
     },
     requesterLogin: async (parent, { email, password }) => {
       const requester = await Requester.findOne({ email });
 
       if (!requester) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const correctPw = await requester.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const token = signToken(requester);
@@ -145,61 +146,71 @@ const resolvers = {
       const developer = await Developer.findOne({ email });
 
       if (!developer) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const correctPw = await developer.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const token = signToken(developer);
 
       return { token, developer };
     },
-  //   addOrder: async (parent, { products }, context) => {
-  //     console.log(context);
-  //     if (context.user) {
-  //       const order = new Order({ products });
 
-  //       await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+    removeRequest: async (parent, { _id }, context) => {
+      const removeRequest = await Requester.findOneAndUpdate(
+        { _id: context.user._id },
+        { $pull: { requests: _id } },
+        { new: true }
+      );
+    },
 
-  //       return order;
-  //     }
+    // updateRequest: async(parent),
+    //   addOrder: async (parent, { products }, context) => {
+    //     console.log(context);
+    //     if (context.user) {
+    //       const order = new Order({ products });
 
-  //     throw new AuthenticationError('Not logged in');
-  //   },
-  //   updateUser: async (parent, args, context) => {
-  //     if (context.user) {
-  //       return await User.findByIdAndUpdate(context.user._id, args, { new: true });
-  //     }
+    //       await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
 
-  //     throw new AuthenticationError('Not logged in');
-  //   },
-  //   updateProduct: async (parent, { _id, quantity }) => {
-  //     const decrement = Math.abs(quantity) * -1;
+    //       return order;
+    //     }
 
-  //     return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
-  //   },
-  //   login: async (parent, { email, password }) => {
-  //     const user = await User.findOne({ email });
+    //     throw new AuthenticationError('Not logged in');
+    //   },
+    //   updateUser: async (parent, args, context) => {
+    //     if (context.user) {
+    //       return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+    //     }
 
-  //     if (!user) {
-  //       throw new AuthenticationError('Incorrect credentials');
-  //     }
+    //     throw new AuthenticationError('Not logged in');
+    //   },
+    //   updateProduct: async (parent, { _id, quantity }) => {
+    //     const decrement = Math.abs(quantity) * -1;
 
-  //     const correctPw = await user.isCorrectPassword(password);
+    //     return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+    //   },
+    //   login: async (parent, { email, password }) => {
+    //     const user = await User.findOne({ email });
 
-  //     if (!correctPw) {
-  //       throw new AuthenticationError('Incorrect credentials');
-  //     }
+    //     if (!user) {
+    //       throw new AuthenticationError('Incorrect credentials');
+    //     }
 
-  //     const token = signToken(user);
+    //     const correctPw = await user.isCorrectPassword(password);
 
-  //     return { token, user };
-  //   }
-  }
+    //     if (!correctPw) {
+    //       throw new AuthenticationError('Incorrect credentials');
+    //     }
+
+    //     const token = signToken(user);
+
+    //     return { token, user };
+    //   }
+  },
 };
 
 module.exports = resolvers;

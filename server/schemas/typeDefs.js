@@ -69,6 +69,8 @@ const typeDefs = gql`
     addRequest(title: String!, description: String!): Request
     requesterLogin(email: String!, password: String!): requesterAuth
     developerLogin(email: String!, password: String!): developerAuth
+    updateRequest(title: String!, description: String!): Request
+    removeRequest(_id: String!): Requester
   }
 `;
 

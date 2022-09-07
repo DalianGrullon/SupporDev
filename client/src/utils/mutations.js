@@ -22,10 +22,7 @@ export const ADD_REQUESTER = gql`
 
 export const ADD_REQUEST = gql`
   mutation addRequest($title: String!, $description: String!) {
-    addRequest(
-      title: $title
-      description: $description
-    ) {
+    addRequest(title: $title, description: $description) {
       _id
       title
       description
