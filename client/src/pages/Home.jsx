@@ -13,7 +13,7 @@ const Home = () => {
           </p>
           <div className="card-actions justify-end">
             <Link to="/signup">
-              <button className="btn bg-gradient-to-br from-blue-900 to-blue-400 text-primary-content hover:bg-primary-focus duration-300 ease-in-out border-none rounded-lg text-lg">
+              <button className="btn bg-gradient-to-br shadow-lg hover:scale-105 from-blue-900 to-blue-400 text-primary-content hover:bg-primary-focus duration-300 ease-in-out border-none rounded-lg text-lg">
                 Get Started!
               </button>
             </Link>
