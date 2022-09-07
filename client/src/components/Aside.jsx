@@ -1,7 +1,7 @@
 import AsideCard from "./AsideCard";
 import { QUERY_REQUESTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
-
+// renders aside
 const Aside = () => {
   const { loading, error, data } = useQuery(QUERY_REQUESTS);
   const requestData = data?.requests || {};
