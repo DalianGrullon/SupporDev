@@ -10,7 +10,7 @@ const Nav = ({ fixed }) => {
     e.preventDefault();
     Auth.logout();
   };
-  
+
   const checkRole = () => {
     if (Auth.loggedIn()) {
       const check = localStorage.getItem("id_token");
@@ -18,13 +18,13 @@ const Nav = ({ fixed }) => {
       return checkToken.data.role;
     }
   };
-  
+
   const getUserId = () => {
     if (Auth.loggedIn()) {
       const { data } = Auth.getProfile();
-      return data._id
+      return data._id;
     }
-  }
+  };
 
   return (
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gradient-to-br from-neutral-focus to-slate-400 ">
@@ -33,7 +33,7 @@ const Nav = ({ fixed }) => {
           <div className="flex">
             <img src="/images/SupporDev.png" alt="icon" className="h-20" />
             <Link
-              className="text-4xl font-bold leading-relaxed inline-block mr-4 pl-4 py-2 whitespace-nowrap text-primary-content hover:scale-105 hover:text-blue-500 duration-300 ease-in-out"
+              className="text-4xl font-bold leading-relaxed inline-block mr-4 pl-4 py-2 whitespace-nowrap text-primary-content hover:scale-105 hover:text-blue-400 duration-300 ease-in-out"
               style={{ textShadow: "2px 4px 4px #496551" }}
               to="/"
             >
