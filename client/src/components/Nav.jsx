@@ -15,10 +15,16 @@ const Nav = ({ fixed }) => {
     if (Auth.loggedIn()) {
       const check = localStorage.getItem("id_token");
       const checkToken = jwtDecode(check);
-      console.log(checkToken.data);
       return checkToken.data.role;
     }
   };
+  
+  const getUserId = () => {
+    if (Auth.loggedIn()) {
+      const { data } = Auth.getProfile();
+      return data._id
+    }
+  }
 
   return (
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gradient-to-br from-neutral-focus to-slate-400 ">
@@ -75,18 +81,30 @@ const Nav = ({ fixed }) => {
             {/* </Link>
             </li> */}
             {Auth.loggedIn() && checkRole() === "requester" && (
-              <li className="nav-item">
-                <Link to="/request">
-                  <button
-                    type="button"
-                    className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
-                  >
-                    Create Request
-                  </button>
-                  {/* <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i>
-                <span className="ml-2">Home</span> */}
-                </Link>
-              </li>
+              <>
+                <li className="nav-item">
+                  <Link to="/request">
+                    <button
+                      type="button"
+                      className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
+                    >
+                      Create Request
+                    </button>
+                    {/* <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i>
+                  <span className="ml-2">Home</span> */}
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to={`/profile/${getUserId()}`}>
+                    <button
+                      type="button"
+                      className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
+                    >
+                      My Requests
+                    </button>
+                  </Link>
+                </li>
+              </>
             )}
             {!Auth.loggedIn() ? (
               <li className="nav-item">
