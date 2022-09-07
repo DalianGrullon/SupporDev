@@ -44,7 +44,6 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        {/* some provider */}
         <div className="bg-gradient-to-br from-slate-500 to-slate-300">
           <Header />
           <Aside />
@@ -61,7 +60,6 @@ function App() {
           </section>
           <Footer />
         </div>
-        {/* /some provider */}
       </Router>
     </ApolloProvider>
   );

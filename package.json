@@ -1,6 +1,7 @@
 {
-  "name": "SupporDev",
+  "name": "suppordev",
   "version": "1.0.0",
+  "proxy": "http://localhost:3001",
   "description": "A public platform where web developers can contribute to the community by voluntarily working on requests made by people.",
   "main": "server/server.js",
   "scripts": {

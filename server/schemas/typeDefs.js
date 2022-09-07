@@ -72,13 +72,6 @@ const typeDefs = gql`
   }
 `;
 
-// developerLogin(userName: String!, password: String!): developerAuth
-// requesterLogin(userName: String!, password: String!): requesterAuth
-// addDeveloper(userName: String!, firstName: String!, lastName: String!, email: String!, password: String!): developerAuth
-// addRequester(userName: String!, firstName: String!, lastName: String!, email: String!, password: String!): requesterAuth
-// addContribution(userName: String!,  _id: ID!): Developer
-// addRequest(title: String!, description: String!, _id: ID!): Request
-// updateRequest(_id: ID!, title: String!, description: String!): Request
-// deleteRequest(_id: ID!, title: String!, description: String!): Request
+
 
 module.exports = typeDefs;
