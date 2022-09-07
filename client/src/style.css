@@ -1,38 +1,28 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* section{
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  background: url(/public/Images/Psychedelic.png);
-  background-size: cover;
-  background-position: center center;
-  color: #fff;
-} */
-
-.form-container{
+.form-container {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform:translate(-50%,-50%);
-  background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
-width:380px;
-padding: 50px 30px;
-border-radius: 10px;
-box-shadow: 7px 7px 60px rgb(0, 255, 238);
+  transform: translate(-50%, -50%);
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  width: 380px;
+  padding: 50px 30px;
+  border-radius: 10px;
+  box-shadow: 7px 7px 60px rgb(0, 255, 238);
 }
-h1{
+h1 {
   text-transform: uppercase;
   font-size: 2em;
   text-align: center;
   margin-bottom: 2em;
 }
 
-.control input{
+.control input {
   width: 100%;
   display: block;
   padding: 10px;
@@ -41,27 +31,27 @@ h1{
   outline: none;
   margin: 1em 0;
 }
-.control input[type="submit"]{
+.control input[type="submit"] {
   background: crimson;
   color: #fff;
   text-transform: uppercase;
   font-size: 1.2em;
-  opacity: .7;
-  transition: opacity .3s ease;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 }
-.control input[type="submit"]:hover{
+.control input[type="submit"]:hover {
   opacity: 1;
 }
 
-.link{
+.link {
   text-align: center;
 }
-.link a{
+.link a {
   text-decoration: none;
   color: #fff;
-  opacity: .6;
-  transition: opacity .3s ease;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
-link a:hover{
+link a:hover {
   opacity: 1;
 }

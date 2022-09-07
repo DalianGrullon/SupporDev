@@ -20,7 +20,6 @@ const Requests = ({ request }) => {
     window.location.reload();
   };
 
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUpdateRequestData({ ...updateRequestData, [name]: value });
@@ -30,11 +29,13 @@ const Requests = ({ request }) => {
     e.preventDefault();
     setShowModal(false);
 
-    updateRequest({ variables: {
-      id: request._id,
-      title: updateRequestData.title,
-      description: updateRequestData.description
-    }});
+    updateRequest({
+      variables: {
+        id: request._id,
+        title: updateRequestData.title,
+        description: updateRequestData.description,
+      },
+    });
 
     window.location.reload();
   };
@@ -42,7 +43,6 @@ const Requests = ({ request }) => {
   return (
     <div className="card w-full ml-0 bg-base-300 shadow-lg m-12 bg-gradient-to-br from-neutral-focus to-slate-400 text-primary-content duration-300">
       <div className="card-body text-primary-content">
-        {/* TODO: make this a link to populate the main body of post info */}
         <h3 className="card-title">{request.title}</h3>
         <p>{request.description}</p>
         <div className="flex justify-between">
@@ -84,7 +84,6 @@ const Requests = ({ request }) => {
                           ></textarea>
                         </div>
                       </div>
-                      {/*footer*/}
                       <div className="flex items-center justify-end p-6 border-t border-solid border-slate-500 rounded-b">
                         <button
                           className="text-red-600 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
@@ -94,7 +93,6 @@ const Requests = ({ request }) => {
                           Cancel
                         </button>
                         <button
-                          // px-6 py-3 bg-primary text-primary-content font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-primary-focus hover:shadow-lg focus:bg-emerald-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-emerald-800 active:shadow-lg transition duration-150 ease-in-out
                           className="bg-primary text-primary-content  active:shadow-lg font-medium uppercase text-sm leading-tight px-6 py-3 rounded shadow-md hover:shadow-lg outline-none hover:scale-105 hover:bg-primary-focus focus:outline-none focus:ring-0 mr-1 mb-1 ease-in-out transition duration-150"
                           type="submit"
                           onSubmit={handleFormSubmit}
