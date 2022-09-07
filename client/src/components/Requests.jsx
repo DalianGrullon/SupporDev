@@ -4,7 +4,6 @@ import { useState } from "react";
 import { UPDATE_REQUEST, DELETE_REQUEST } from "../utils/mutations";
 
 const Requests = ({ request }) => {
-  console.log(request);
   const [showModal, setShowModal] = useState(false);
   const [updateRequestData, setUpdateRequestData] = useState({
     title: `${request.title}`,
@@ -45,7 +44,7 @@ const Requests = ({ request }) => {
       <div className="card-body text-primary-content">
         {/* TODO: make this a link to populate the main body of post info */}
         <h3 className="card-title">{request.title}</h3>
-        <h4>{request.description}</h4>
+        <p>{request.description}</p>
         <div className="flex justify-between">
           <button
             className="btn shadow-lg bg-gradient-to-br from-blue-900 to-blue-700 border-none text-primary-content hover:scale-105 duration-300 ease-in-out"
