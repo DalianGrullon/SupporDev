@@ -1,16 +1,25 @@
 import { useMutation } from "@apollo/client";
 import { FaTimes } from "react-icons/fa";
 import { useState } from "react";
+import { UPDATE_REQUEST, DELETE_REQUEST } from "../utils/mutations";
 
 const Requests = ({ request }) => {
+  console.log(request);
   const [showModal, setShowModal] = useState(false);
   const [updateRequestData, setUpdateRequestData] = useState({
     title: `${request.title}`,
     description: `${request.description}`,
   });
-  // const {loading, error, data} = useMutation()
-  const check = () => {
-    console.log("hello world");
+  const [updateRequest] = useMutation(UPDATE_REQUEST);
+  const [deleteRequest] = useMutation(DELETE_REQUEST);
+  const handleDeleteRequest = (e) => {
+    // console.log(e.target.value);
+    deleteRequest({
+      variables: {
+        id: request._id,
+      },
+    });
+    window.location.reload();
   };
 
   const handleInputChange = (e) => {
@@ -43,7 +52,10 @@ const Requests = ({ request }) => {
           </button>
           {showModal ? (
             <>
-              <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+              <div
+                key={request._id}
+                className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+              >
                 <div className="relative w-5/6 my-6 mx-auto max-w-3xl">
                   {/*content*/}
                   <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-gradient-to-br from-blue700 to-slate-400 outline-none focus:outline-none">
@@ -95,12 +107,14 @@ const Requests = ({ request }) => {
               <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
             </>
           ) : null}
-          <FaTimes
-            className="cursor-pointer"
-            size={30}
-            color="red"
-            onClick={check}
-          />
+          <button onClick={handleDeleteRequest}>
+            <FaTimes
+              className="cursor-pointer"
+              size={30}
+              color="red"
+              value={request._id}
+            />
+          </button>
         </div>
       </div>
     </div>
