@@ -22,7 +22,9 @@ const ProfilePage = () => {
 
   return (
     <>
-      <section className="block p-6 rounded-lg shadow-lg bg-gradient-to-br from-neutral-focus to-slate-400 max-w-md md:col-start-6 md:col-span-6 col-start-3 col-span-8 my-8 mx-auto row-start-2 row-span-4 md:w-1/3">
+
+      <section className="block p-6 rounded-lg bg-transparent from-neutral-focus to-slate-400 max-w-md md:col-start-6 md:col-span-6 col-start-3 col-span-8 my-8 mx-auto row-start-2 row-span-4">
+
         {requester.requests.map((request) => (
           <Requests key={request._id} request={request} />
         ))}
