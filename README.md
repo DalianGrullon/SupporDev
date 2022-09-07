@@ -1,28 +1,40 @@
 # SupporDev
 
-<br>
+![](/client//public/SupporDev.png)
 
-[Link to Deployed Application]()
+<br>
 
 ## Description
 
-SupporDev is a public platform where web developers can contribute to the community by voluntarily working on requests made by people.
+[Click here to visit the application](https://suppordev.herokuapp.com/)
+
+SupporDev was developed to let every developer have a chance at a project that could be used to enhance their experience on their portfolio and contribute to the community's web development needs.
 
 <br>
 
 ## Usage
 
-- Provide screenshots displaying functionality and usecases for application.
-- Include a video walkthrough tutorial.
+SupporDev allows users to create two types of accounts, "Requester" or "Developer". Choosing Requester allows users to create requests that developers can contribute to. Choosing developer allows you to identify as a developer and contribute to requests.
+
+[Click here for video walkthrough](https://drive.google.com/file/d/1FySQSoz4B5hooCa-GfeINu4xuxknIeFE/view?usp=sharing)
 
 <br>
 
-## Technology
+This is the landing page of SupporDev, where new users can view all currently active requests and login or create their accounts. [Click here for video walkthrough of usage](https://drive.google.com/file/d/1FySQSoz4B5hooCa-GfeINu4xuxknIeFE/view?usp=sharing)
 
-- List all tech used
+![](./client//public/images/landing-page.png)
+
 
 <br>
 
-## Contributors
+## Technology Used
 
-- List all contributors
+- MongoDB via Mongoose ODM
+- Express.js
+- React.js
+- Node.js
+- Daisy UI
+- GraphQL
+- Bcrypt
+- JWT
+- Tailwind CSS
