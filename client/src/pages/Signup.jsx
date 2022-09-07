@@ -12,8 +12,7 @@ const Signup = () => {
     password: "",
     role: "",
   });
-  // const [validated] = useState(false);
-  // const [showAlert, setShowAlert] = useState(false);
+
   const [addRequester] = useMutation(ADD_REQUESTER);
   const [addDeveloper] = useMutation(ADD_DEVELOPER);
 

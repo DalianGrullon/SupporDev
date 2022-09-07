@@ -64,22 +64,8 @@ const Nav = ({ fixed }) => {
                 >
                   Home
                 </button>
-                {/* <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i>
-                <span className="ml-2">Home</span> */}
               </Link>
             </li>
-            {/* <li className="nav-item">
-              <Link to="/signup">
-                <button
-                  type="button"
-                  className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
-                >
-                  Signup
-                </button> */}
-            {/* <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i>
-                <span className="ml-2">Signup</span> */}
-            {/* </Link>
-            </li> */}
             {Auth.loggedIn() && checkRole() === "requester" && (
               <>
                 <li className="nav-item">
@@ -90,8 +76,6 @@ const Nav = ({ fixed }) => {
                     >
                       Create Request
                     </button>
-                    {/* <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i>
-                  <span className="ml-2">Home</span> */}
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -115,8 +99,6 @@ const Nav = ({ fixed }) => {
                   >
                     Login
                   </button>
-                  {/* <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i>
-                <span className="ml-2">Login</span> */}
                 </Link>
               </li>
             ) : (

@@ -22,7 +22,6 @@ const Login = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    // try {
     if (loginData.role === "requester") {
       const loginMutation = await loginRequester({
         variables: {

@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { FaUserCircle } from "react-icons/fa";
 import { QUERY_REQUESTER } from "../utils/queries";
 import Requests from "./Requests";
 

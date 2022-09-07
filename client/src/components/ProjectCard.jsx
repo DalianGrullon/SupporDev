@@ -85,15 +85,12 @@ const ProjectCard = () => {
           <>
             <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
               <div className="relative w-5/6 my-6 mx-auto max-w-3xl">
-                {/*content*/}
                 <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-gradient-to-br from-blue700 to-slate-400 outline-none focus:outline-none">
-                  {/*header*/}
                   <div className="flex items-start justify-between p-5 border-b border-solid border-slate-500 rounded-t">
                     <h3 className="text-3xl font-semibold">
                       Messaging: {requester.userName}
                     </h3>
                   </div>
-                  {/*body*/}
                   <form onSubmit={handleFormSubmit}>
                     <div className="relative p-6 flex-auto">
                       <div className="form-group mb-6">
@@ -137,7 +134,6 @@ const ProjectCard = () => {
                         Cancel
                       </button>
                       <button
-                        // px-6 py-3 bg-primary text-primary-content font-medium text-sm leading-tight uppercase rounded shadow-md hover:bg-primary-focus hover:shadow-lg focus:bg-emerald-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-emerald-800 active:shadow-lg transition duration-150 ease-in-out
                         className="bg-primary text-primary-content  active:shadow-lg font-medium uppercase text-sm leading-tight px-6 py-3 rounded shadow-md hover:shadow-lg outline-none hover:scale-105 hover:bg-primary-focus focus:outline-none focus:ring-0 mr-1 mb-1 ease-in-out transition duration-150"
                         type="submit"
                         onSubmit={handleFormSubmit}
