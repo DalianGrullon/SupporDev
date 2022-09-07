@@ -75,3 +75,21 @@ export const DEVELOPER_LOGIN = gql`
     }
   }
 `;
+
+export const UPDATE_REQUEST = gql`
+mutation updateRequest($id: ID!, $title: String, $description: String) {
+  updateRequest(_id: $id, title: $title, description: $description) {
+    title
+    description
+  }
+}
+`;
+
+export const DELETE_REQUEST = gql`
+mutation deleteRequest($id: ID!) {
+  deleteRequest(_id: $id) {
+    _id
+    title
+  }
+}
+`;
