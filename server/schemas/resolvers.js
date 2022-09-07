@@ -1,19 +1,22 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { Request, Requester, Developer } = require('../models/index');
-const { signToken } = require('../utils/auth');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const { AuthenticationError } = require("apollo-server-express");
+const { request } = require("express");
+const { Request, Requester, Developer } = require("../models/index");
+const { signToken } = require("../utils/auth");
+const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
 const resolvers = {
   Query: {
     requests: async () => {
-      return await Request.find().populate('requester');
+      return await Request.find().populate("requester");
     },
     requester: async (parent, { _id }) => {
-      return await Requester.findById(_id).populate('requests');
+      return await Requester.findById(_id).populate("requests");
     },
     request: async (parent, { _id }) => {
+
       return await Request.findById(_id).populate('requester');
     }
+
   },
   Mutation: {
     addRequester: async (parent, args) => {
@@ -32,26 +35,26 @@ const resolvers = {
       const request = await Request.create({
         title: args.title,
         description: args.description,
-        requester: context.user._id
+        requester: context.user._id,
       });
       const requester = await Requester.findOneAndUpdate(
         { _id: context.user._id },
         { $push: { requests: request._id } }
       );
 
-      return await Request.findById(request._id).populate('requester');
+      return await Request.findById(request._id).populate("requester");
     },
     requesterLogin: async (parent, { email, password }) => {
       const requester = await Requester.findOne({ email });
 
       if (!requester) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const correctPw = await requester.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const token = signToken(requester);
@@ -62,19 +65,20 @@ const resolvers = {
       const developer = await Developer.findOne({ email });
 
       if (!developer) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const correctPw = await developer.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const token = signToken(developer);
 
       return { token, developer };
     },
+
     updateRequest: async (parent, args) => {
       const request = await Request.findByIdAndUpdate(
         args._id,

@@ -99,7 +99,7 @@ const ProjectCard = () => {
                       <div className="form-group mb-6">
                         <input
                           onChange={handleInputChange}
-                          className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-emerald-800 focus:outline-none"
+                          className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white  focus:outline-none"
                           type="text"
                           name="name"
                           placeholder="Full Name"
@@ -109,7 +109,7 @@ const ProjectCard = () => {
                       <div className="form-group mb-6">
                         <input
                           onChange={handleInputChange}
-                          className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-emerald-800 focus:outline-none"
+                          className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none"
                           type="email"
                           name="email"
                           placeholder="Email Address"
@@ -119,7 +119,7 @@ const ProjectCard = () => {
                       <div className="form-group mb-6">
                         <textarea
                           onChange={handleInputChange}
-                          className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-emerald-800 focus:outline-none"
+                          className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none"
                           placeholder="Your Message"
                           name="message"
                           rows="10"
