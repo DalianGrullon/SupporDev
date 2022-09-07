@@ -16,7 +16,7 @@ import CreateRequest from "./components/CreateRequest";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Signup from "./pages/Signup";
-import ProfilePage from './components/ProfilePage';
+import ProfilePage from "./components/ProfilePage";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -48,7 +48,10 @@ function App() {
         <div className="bg-gradient-to-br from-slate-500 to-slate-300">
           <Header />
           <Aside />
-          <section className="grid grid-cols-12  items-center" style={height}>
+          <section
+            className="md:grid md:grid-cols-12  items-center"
+            style={height}
+          >
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/project/:projectId" element={<ProjectCard />} />
