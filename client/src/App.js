@@ -47,7 +47,10 @@ function App() {
         <div className="bg-gradient-to-br from-slate-700 to-slate-300">
           <Header />
           <Aside />
-          <section className="flex justify-center items-center" style={height}>
+          <section
+            className="flex justify-center items-center min-h-fit"
+            style={height}
+          >
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/project/:projectId" element={<ProjectCard />} />

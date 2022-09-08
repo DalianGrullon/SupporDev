@@ -1,20 +1,17 @@
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
-import jwtDecode from "jwt-decode";
 
 const Home = () => {
   const checkRole = () => {
     if (Auth.loggedIn()) {
-      const check = localStorage.getItem("id_token");
-      const checkToken = jwtDecode(check);
+      const checkToken = Auth.getProfile();
       return checkToken.data.role;
-    } else {
-      return false;
     }
   };
-  function ifLoggedIn() {
-    const token = localStorage.getItem("id_token");
-    const userName = jwtDecode(token);
+
+  const ifLoggedIn = () => {
+    const userName = Auth.getProfile();
+
     return (
       <>
         {checkRole() === "requester" ? (
@@ -23,7 +20,7 @@ const Home = () => {
               Hello {userName.data.userName}
             </h2>
             <p className="text-xl">
-              Make a request for help and have your needs fulfilled!!
+              Make a request for help and get your needs met!!
             </p>
           </>
         ) : (
@@ -43,7 +40,7 @@ const Home = () => {
         )}
       </>
     );
-  }
+  };
   // const requester = () => {
   //   if (Auth.loggedIn && checkRole() === "requester") {
   //     return (
@@ -64,7 +61,9 @@ const Home = () => {
       <div className="card w-auto bg-gradient-to-br from-neutral-focus to-slate-400 text-neutral-content shadow-2xl">
         <div className="card-body">
           {
-            !Auth.loggedIn ? (
+            Auth.loggedIn ? (
+              ifLoggedIn()
+            ) : (
               <>
                 <h2 className="card-title text-4xl">Welcome to SupporDev!</h2>
                 <p className="text-xl">
@@ -74,10 +73,7 @@ const Home = () => {
                   the place for you!
                 </p>
               </>
-            ) : (
-              <>{ifLoggedIn()}</>
             )
-
             // <>
             //   {Auth.loggedIn && checkRole() === "requester" ? (
             //     <>
@@ -116,7 +112,7 @@ const Home = () => {
               <>
                 {Auth.loggedIn && checkRole() === "requester" && (
                   <Link to="/request">
-                    <button className="btn bg-gradient-to-br shadow-lg hover:scale-105 from-blue-900 to-blue-400 text-primary-content hover:bg-primary-focus duration-300 ease-in-out border-none rounded-lg text-lg">
+                    <button className="btn bg-gradient-to-br shadow-lg hover:scale-105 from-blue-900 to-blue-400 text-primary-content hover:shadow-xl hover:bg-primary-focus duration-300 ease-in-out border-none rounded-lg text-lg">
                       Make a Request
                     </button>
                   </Link>
