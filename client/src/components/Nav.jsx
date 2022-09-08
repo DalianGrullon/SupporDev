@@ -33,7 +33,7 @@ const Nav = ({ fixed }) => {
           <div className="flex">
             <img src="/SupporDev.png" alt="icon" className="h-20" />
             <Link
-              className="text-4xl font-bold leading-relaxed inline-block mr-4 pl-4 py-2 whitespace-nowrap text-primary-content hover:scale-105 hover:text-blue-400 duration-300 ease-in-out"
+              className="text-4xl font-bold leading-relaxed inline-block mr-4 pl-4 py-2 whitespace-nowrap text-neutral-content hover:scale-105 hover:text-blue-400 duration-300 ease-in-out"
               style={{ textShadow: "2px 4px 4px #496551" }}
               to="/"
             >
