@@ -44,7 +44,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="bg-gradient-to-br from-slate-500 to-slate-300">
+        <div className="bg-gradient-to-br from-slate-700 to-slate-300">
           <Header />
           <Aside />
           <section className="flex justify-center items-center" style={height}>
