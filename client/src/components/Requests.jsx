@@ -17,7 +17,7 @@ const Requests = ({ request }) => {
         id: request._id,
       },
     });
-    window.location.href = '/';
+    window.location.href = "/";
   };
 
   const handleInputChange = (e) => {
@@ -37,7 +37,7 @@ const Requests = ({ request }) => {
       },
     });
 
-    window.location.href = '/';
+    window.location.href = "/";
   };
 
   return (
