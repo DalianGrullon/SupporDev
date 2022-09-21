@@ -55,7 +55,7 @@ const Home = () => {
           <div className="card-actions justify-end">
             {Auth.loggedIn() && checkRole() === "requester" ? (
               <Link to="/request">
-                <button className="btn bg-gradient-to-br shadow-lg hover:scale-105 from-blue-900 to-blue-400 text-primary-content hover:bg-primary-focus duration-300 ease-in-out border-none rounded-lg text-lg">
+                <button className="btn bg-gradient-to-br shadow-lg hover:scale-105 from-blue-900 to-blue-500 text-primary-content hover:bg-primary-focus duration-300 ease-in-out border-none rounded-lg text-lg">
                   Make a Request
                 </button>
               </Link>

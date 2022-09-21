@@ -3,13 +3,14 @@ import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 import jwtDecode from "jwt-decode";
+import PrimaryButton from "./shared/button/PrimaryButton";
 
 const Nav = ({ fixed }) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const logout = (e) => {
-    e.preventDefault();
+  async function logout(e) {
+    // e.preventDefault();
     Auth.logout();
-  };
+  }
 
   const checkRole = () => {
     if (Auth.loggedIn()) {
@@ -58,34 +59,24 @@ const Nav = ({ fixed }) => {
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
             <li className="nav-item">
               <Link to="/">
-                <button
+                {/* <button
                   type="button"
                   className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
-                >
-                  Home
-                </button>
+                > */}
+                <PrimaryButton>Home</PrimaryButton>
+                {/* </button> */}
               </Link>
             </li>
             {Auth.loggedIn() && checkRole() === "requester" && (
               <>
                 <li className="nav-item">
                   <Link to="/request">
-                    <button
-                      type="button"
-                      className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
-                    >
-                      Create Request
-                    </button>
+                    <PrimaryButton>Create Request</PrimaryButton>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link to={`/profile/${getUserId()}`}>
-                    <button
-                      type="button"
-                      className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
-                    >
-                      My Requests
-                    </button>
+                    <PrimaryButton>My Requests</PrimaryButton>
                   </Link>
                 </li>
               </>
@@ -93,23 +84,23 @@ const Nav = ({ fixed }) => {
             {!Auth.loggedIn() ? (
               <li className="nav-item">
                 <Link to="/login">
-                  <button
+                  {/* <button
                     type="button"
                     className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105  hover:shadow-xl transition duration-300 ease-in-out"
-                  >
-                    Login
-                  </button>
+                  > */}
+                  <PrimaryButton>Login</PrimaryButton>
+                  {/* </button> */}
                 </Link>
               </li>
             ) : (
               <li className="nav-item">
-                <button
+                {/* <button
                   type="button"
                   className="inline-block m-2 px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105 hover:shadow-xl transition duration-300 ease-in-out"
                   onClick={logout}
-                >
-                  Logout
-                </button>
+                > */}
+                <PrimaryButton onClick={() => logout()}>Logout</PrimaryButton>
+                {/* </button> */}
               </li>
             )}
           </ul>

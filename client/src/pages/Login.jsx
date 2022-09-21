@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 import { DEVELOPER_LOGIN, REQUESTER_LOGIN } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
+import PrimaryButton from "../components/shared/button/PrimaryButton";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
@@ -134,17 +135,17 @@ const Login = () => {
           onClick={handleFormSubmit}
           className="
       w-full
-      px-6
       py-2.5
-      bg-primary
+      bg-gradient-to-br
+      from-blue-900
+      to-blue-500
       text-primary-content
       font-medium
-      text-xs
+      text-sm
       leading-tight
       uppercase
-      rounded
-      shadow-md
-      hover:bg-primary-focus hover:shadow-lg hover:scale-105
+      rounded-lg
+      shadow-md hover:shadow-lg hover:scale-105
        focus:shadow-lg focus:outline-none focus:ring-0
        active:shadow-lg
       transition

@@ -70,7 +70,7 @@ const CreateRequest = () => {
         <button
           type="submit"
           onClick={handleFormSubmit}
-          className="w-full px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-xs leading-tight uppercase rounded shadow-md hover:scale-105 hover:bg-primary-focus hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-300 ease-in-out"
+          className="w-full py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded shadow-md hover:scale-105 hover:bg-primary-focus hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-300 ease-in-out"
         >
           Submit
         </button>

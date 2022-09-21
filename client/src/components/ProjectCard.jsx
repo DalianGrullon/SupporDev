@@ -127,14 +127,14 @@ const ProjectCard = () => {
                     {/*footer*/}
                     <div className="flex items-center justify-end p-6 border-t border-solid border-slate-500 rounded-b">
                       <button
-                        className="text-red-300 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                         type="button"
                         onClick={() => setShowModal(false)}
                       >
                         Cancel
                       </button>
                       <button
-                        className="bg-primary text-primary-content  active:shadow-lg font-medium uppercase text-sm leading-tight px-6 py-3 rounded shadow-md hover:shadow-lg outline-none hover:scale-105 hover:bg-primary-focus focus:outline-none focus:ring-0 mr-1 mb-1 ease-in-out transition duration-150"
+                        className="bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content  active:shadow-lg font-medium uppercase text-sm leading-tight px-6 py-3 rounded-lg shadow-md hover:shadow-lg outline-none hover:scale-105 hover:bg-primary-focus focus:outline-none focus:ring-0 ease-in-out transition duration-150"
                         type="submit"
                         onSubmit={handleFormSubmit}
                       >

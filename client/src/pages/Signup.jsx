@@ -207,19 +207,20 @@ const Signup = () => {
           onClick={handleFormSubmit}
           className="
       w-full
-      px-6
       py-2.5
-      bg-primary
+      bg-gradient-to-br
+      from-blue-900
+      to-blue-500
       text-primary-content
       font-medium
-      text-xs
+      text-sm
       leading-tight
       uppercase
       rounded-lg
       shadow-md
-      hover:bg-blue-700 hover:scale-105 hover:shadow-lg
-      focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-      active:bg-blue-800 active:shadow-lg
+      hover:scale-105 hover:shadow-lg
+      focus:shadow-lg focus:outline-none focus:ring-0
+      active:shadow-lg
       transition
       duration-300
       ease-in-out"
