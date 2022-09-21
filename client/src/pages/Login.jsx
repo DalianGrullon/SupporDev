@@ -50,6 +50,10 @@ const Login = () => {
       role: "",
     });
   };
+
+  const formClasses =
+    "form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none";
+
   return (
     <div className="block p-6 rounded-lg shadow-lg max-w-md md:col-start-5 md:col-span-6 col-span-8 col-start-3 my-12 mx-auto bg-gradient-to-br from-neutral-focus to-slate-400 ">
       <form className="form" onSubmit={handleFormSubmit}>
@@ -80,21 +84,7 @@ const Login = () => {
           <input
             name="email"
             type="email"
-            className="form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-base-100 bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:outline-none"
+            className={formClasses}
             id="email"
             placeholder="Email address"
             onChange={handleInputChange}
@@ -110,20 +100,7 @@ const Login = () => {
           <input
             name="password"
             type="password"
-            className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-base-100 bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-emerald-600 focus:outline-none"
+            className={formClasses}
             id="password"
             placeholder="******"
             onChange={handleInputChange}
