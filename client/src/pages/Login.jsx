@@ -94,7 +94,7 @@ const Login = () => {
         transition
         ease-in-out
         m-0
-        focus:text-gray-700 focus:bg-white focus:border-emerald-600 focus:outline-none"
+        focus:text-gray-700 focus:bg-white focus:outline-none"
             id="email"
             placeholder="Email address"
             onChange={handleInputChange}
@@ -129,31 +129,9 @@ const Login = () => {
             onChange={handleInputChange}
           />
         </div>
-
-        <button
-          type="submit"
-          onClick={handleFormSubmit}
-          className="
-      w-full
-      py-2.5
-      bg-gradient-to-br
-      from-blue-900
-      to-blue-500
-      text-primary-content
-      font-medium
-      text-sm
-      leading-tight
-      uppercase
-      rounded-lg
-      shadow-md hover:shadow-lg hover:scale-105
-       focus:shadow-lg focus:outline-none focus:ring-0
-       active:shadow-lg
-      transition
-      duration-300
-      ease-in-out"
-        >
+        <PrimaryButton type="submit" onClick={handleFormSubmit}>
           Sign in
-        </button>
+        </PrimaryButton>
         <p className="text-gray-800 mt-6 text-center">
           Not a member?{" "}
           <Link
