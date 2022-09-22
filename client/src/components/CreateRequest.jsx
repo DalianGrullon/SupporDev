@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ADD_REQUEST } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
+import PrimaryButton from "./shared/button/PrimaryButton";
 
 const CreateRequest = () => {
   const [requestFormData, setRequestFormData] = useState({
@@ -31,6 +32,8 @@ const CreateRequest = () => {
 
     window.location.href = "/";
   };
+  const formClasses =
+    "form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:outline-none";
 
   return (
     <div className="block p-6 rounded-lg shadow-lg text-primary bg-gradient-to-br from-neutral-focus to-slate-400 max-w-md md:col-start-5 md:col-span-6 col-span-8 col-start-3  my-12">
@@ -45,7 +48,7 @@ const CreateRequest = () => {
           <input
             name="title"
             type="text"
-            className="form-controlblock w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:outline-none"
+            className={formClasses}
             id="title"
             placeholder="Title of request"
             onChange={handleInputChange}
@@ -60,20 +63,14 @@ const CreateRequest = () => {
           </label>
           <textarea
             onChange={handleInputChange}
-            className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:outline-none"
+            className={formClasses}
             placeholder="Your Message"
             name="description"
             rows="5"
             required
           ></textarea>
         </div>
-        <button
-          type="submit"
-          onClick={handleFormSubmit}
-          className="w-full py-2.5 bg-gradient-to-br from-blue-900 to-blue-500 text-primary-content font-medium text-sm leading-tight uppercase rounded shadow-md hover:scale-105 hover:bg-primary-focus hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-300 ease-in-out"
-        >
-          Submit
-        </button>
+        <PrimaryButton onClick={handleFormSubmit}>Submit</PrimaryButton>
       </form>
     </div>
   );
