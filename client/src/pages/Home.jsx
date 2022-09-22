@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
+import PrimaryButton from "../components/shared/button/PrimaryButton";
 
 const Home = () => {
   const checkRole = () => {
@@ -46,18 +47,14 @@ const Home = () => {
                 for you!
               </p>
               <Link to="/signup">
-                <button className="btn bg-gradient-to-br shadow-lg hover:scale-105 from-blue-900 to-blue-400 text-primary-content hover:bg-primary-focus duration-300 ease-in-out border-none rounded-lg text-lg">
-                  Get Started!
-                </button>
+                <PrimaryButton className="text-lg">Get Started!</PrimaryButton>
               </Link>
             </>
           )}
           <div className="card-actions justify-end">
             {Auth.loggedIn() && checkRole() === "requester" ? (
               <Link to="/request">
-                <button className="btn bg-gradient-to-br shadow-lg hover:scale-105 from-blue-900 to-blue-400 text-primary-content hover:bg-primary-focus duration-300 ease-in-out border-none rounded-lg text-lg">
-                  Make a Request
-                </button>
+                <PrimaryButton className="">Make a Request</PrimaryButton>
               </Link>
             ) : (
               <></>

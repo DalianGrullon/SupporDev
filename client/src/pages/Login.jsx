@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 import { DEVELOPER_LOGIN, REQUESTER_LOGIN } from "../utils/mutations";
 import { useMutation } from "@apollo/client";
+import PrimaryButton from "../components/shared/button/PrimaryButton";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
@@ -49,6 +50,10 @@ const Login = () => {
       role: "",
     });
   };
+
+  const formClasses =
+    "form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none";
+
   return (
     <div className="block p-6 rounded-lg shadow-lg max-w-md md:col-start-5 md:col-span-6 col-span-8 col-start-3 my-12 mx-auto bg-gradient-to-br from-neutral-focus to-slate-400 ">
       <form className="form" onSubmit={handleFormSubmit}>
@@ -79,21 +84,7 @@ const Login = () => {
           <input
             name="email"
             type="email"
-            className="form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-base-100 bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-emerald-600 focus:outline-none"
+            className={formClasses}
             id="email"
             placeholder="Email address"
             onChange={handleInputChange}
@@ -109,50 +100,15 @@ const Login = () => {
           <input
             name="password"
             type="password"
-            className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-base-100 bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-emerald-600 focus:outline-none"
+            className={formClasses}
             id="password"
             placeholder="******"
             onChange={handleInputChange}
           />
         </div>
-
-        <button
-          type="submit"
-          onClick={handleFormSubmit}
-          className="
-      w-full
-      px-6
-      py-2.5
-      bg-primary
-      text-primary-content
-      font-medium
-      text-xs
-      leading-tight
-      uppercase
-      rounded
-      shadow-md
-      hover:bg-primary-focus hover:shadow-lg hover:scale-105
-       focus:shadow-lg focus:outline-none focus:ring-0
-       active:shadow-lg
-      transition
-      duration-300
-      ease-in-out"
-        >
+        <PrimaryButton type="submit" onClick={handleFormSubmit}>
           Sign in
-        </button>
+        </PrimaryButton>
         <p className="text-gray-800 mt-6 text-center">
           Not a member?{" "}
           <Link

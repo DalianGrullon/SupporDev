@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { FaUserCircle } from "react-icons/fa";
 import { QUERY_REQUEST } from "../utils/queries";
+import PrimaryButton from "./shared/button/PrimaryButton";
+import CancelButton from "./shared/button/CancelButton";
 
 const ProjectCard = () => {
   const [showModal, setShowModal] = useState(false);
@@ -59,6 +61,9 @@ const ProjectCard = () => {
     });
   };
 
+  const formClasses =
+    "form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white  focus:outline-none";
+
   return (
     <div className="card text-4xl text-primary md:w-1/3 bg-gradient-to-br from-neutral-focus to-slate-400 md:col-start-6 md:col-span-4 col-start-3 col-span-4 shadow-lg mx-4">
       <div className="card-body w-full">
@@ -74,13 +79,9 @@ const ProjectCard = () => {
         <div className="text-xl card-body text-primary-content">
           <p>{request.description}</p>
         </div>
-        <button
-          className="w-full px-6 py-2.5 bg-gradient-to-br from-blue-900 to-blue-400 text-primary-content font-medium text-xs leading-tight uppercase rounded-lg shadow-lg hover:bg-primary-focus hover:scale-105 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-300 ease-in-out"
-          type="button"
-          onClick={() => setShowModal(true)}
-        >
+        <PrimaryButton onClick={() => setShowModal(true)} className="w-full">
           Contact Me
-        </button>
+        </PrimaryButton>
         {showModal ? (
           <>
             <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -96,7 +97,7 @@ const ProjectCard = () => {
                       <div className="form-group mb-6">
                         <input
                           onChange={handleInputChange}
-                          className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white  focus:outline-none"
+                          className={formClasses}
                           type="text"
                           name="name"
                           placeholder="Full Name"
@@ -106,7 +107,7 @@ const ProjectCard = () => {
                       <div className="form-group mb-6">
                         <input
                           onChange={handleInputChange}
-                          className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none"
+                          className={formClasses}
                           type="email"
                           name="email"
                           placeholder="Email Address"
@@ -116,7 +117,7 @@ const ProjectCard = () => {
                       <div className="form-group mb-6">
                         <textarea
                           onChange={handleInputChange}
-                          className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-base-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:outline-none"
+                          className={formClasses}
                           placeholder="Your Message"
                           name="message"
                           rows="3"
@@ -126,20 +127,12 @@ const ProjectCard = () => {
                     </div>
                     {/*footer*/}
                     <div className="flex items-center justify-end p-6 border-t border-solid border-slate-500 rounded-b">
-                      <button
-                        className="text-red-300 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                        type="button"
-                        onClick={() => setShowModal(false)}
-                      >
+                      <CancelButton onClick={() => setShowModal(false)}>
                         Cancel
-                      </button>
-                      <button
-                        className="bg-primary text-primary-content  active:shadow-lg font-medium uppercase text-sm leading-tight px-6 py-3 rounded shadow-md hover:shadow-lg outline-none hover:scale-105 hover:bg-primary-focus focus:outline-none focus:ring-0 mr-1 mb-1 ease-in-out transition duration-150"
-                        type="submit"
-                        onSubmit={handleFormSubmit}
-                      >
+                      </CancelButton>
+                      <PrimaryButton onSubmit={handleFormSubmit}>
                         Send Message
-                      </button>
+                      </PrimaryButton>
                     </div>
                   </form>
                 </div>
